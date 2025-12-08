@@ -12,6 +12,7 @@ import { useLearningProgress } from "@/contexts/LearningProgressContext";
 import { vocabularyData } from "@/data/vocabulary-dataset";
 import { isLowFrequencyWord } from "@/utils/PerformanceTracker";
 import { evaluateUserPerformance } from "@/rules/evaluateUserPerformance";
+import { useSRS } from "@/hooks/useSRS";
 
 type CardStatus = "unseen" | "learning" | "mastered";
 
@@ -25,10 +26,16 @@ export default function FlashcardsPage() {
   const { updateProgress } = useVocabularyProgress();
   const { addPerformanceMetrics, getPerformanceHistory } =
     useLearningProgress();
+  const allIds = vocabularyData.map((w) => w.id);
+  const { dueIds, grade } = useSRS(allIds);
 
+  // Prefer due cards; fall back to random if none
   const [sessionWords] = useState(() => {
-    const shuffled = [...vocabularyData].sort(() => Math.random() - 0.5);
-    return shuffled.slice(0, 15);
+    const dueWords = vocabularyData.filter((w) => dueIds.includes(w.id));
+    const base = dueWords.length
+      ? dueWords
+      : [...vocabularyData].sort(() => Math.random() - 0.5).slice(0, 15);
+    return base.slice(0, 15);
   });
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -56,6 +63,7 @@ export default function FlashcardsPage() {
   };
 
   const handleKnowIt = () => {
+    grade(currentWord.id, 4);
     const newStates = [...cardStates];
     newStates[currentIndex].status = "mastered";
     setCardStates(newStates);
@@ -63,6 +71,7 @@ export default function FlashcardsPage() {
   };
 
   const handleStillLearning = () => {
+    grade(currentWord.id, 2);
     const newStates = [...cardStates];
     if (newStates[currentIndex].status === "unseen") {
       newStates[currentIndex].status = "learning";

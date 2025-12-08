@@ -8,7 +8,7 @@ import { Menu, MenuIcon, MenuSquare } from "lucide-react";
 export default function Header() {
   return (
     <header className="absolute z-10 top-0 md:p-6h-14 w-full rounded-2xl flex">
-      <div className="bg-white w-full m-2 p-2 flex items-center justify-between rounded-2xl font-(--font-mono) border border-gray-300">
+      <div className="bg-white w-full m-2 p-3 flex items-center justify-between rounded-2xl font-(--font-mono) border border-gray-300">
         <a href="#" className="w-28 md:w-32">
           <Image
             src={"/aralila-logo-text.svg"}

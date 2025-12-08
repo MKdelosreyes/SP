@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, X, Lightbulb, Eye, EyeOff } from "lucide-react";
+import { Lightbulb, Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 
 interface FillBlanksQuestionProps {
@@ -16,7 +16,7 @@ interface FillBlanksQuestionProps {
   onSubmit: () => void;
   showResult: boolean;
   isCorrect: boolean | null;
-  onAnswerRevealed?: (revealed: boolean) => void; // NEW
+  onAnswerRevealed?: (revealed: boolean) => void;
 }
 
 export default function FillBlanksQuestion({
@@ -165,45 +165,6 @@ export default function FillBlanksQuestion({
             Suriin ang Sagot
           </motion.button>
         </div>
-      )}
-
-      {showResult && (
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className={`p-6 rounded-xl text-center ${
-            isCorrect
-              ? "bg-green-100 border-2 border-green-300"
-              : "bg-red-100 border-2 border-red-300"
-          }`}
-        >
-          <div className="flex items-center justify-center gap-3">
-            {isCorrect ? (
-              <Check className="w-8 h-8 text-green-600" />
-            ) : (
-              <X className="w-8 h-8 text-red-600" />
-            )}
-            <h3
-              className={`text-xl font-bold ${
-                isCorrect ? "text-green-800" : "text-red-800"
-              }`}
-            >
-              {isCorrect ? "🎉 Tama!" : "❌ Mali"}
-            </h3>
-          </div>
-
-          {!isCorrect && (
-            <div className="space-y-2">
-              <p className="text-sm text-red-700">
-                <span className="font-semibold">Iyong Sagot:</span> {userAnswer}
-              </p>
-              <p className="text-sm text-red-700">
-                <span className="font-semibold">Tamang Sagot:</span>{" "}
-                {correctAnswer}
-              </p>
-            </div>
-          )}
-        </motion.div>
       )}
     </div>
   );

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { ArrowLeft, RotateCcw, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowLeft, RotateCcw, ChevronRight, Lightbulb } from "lucide-react";
 import Link from "next/link";
 import FillBlanksQuestion from "@/components/fillblanks-exercise/FillBlanksQuestion";
 import FillBlanksProgress from "@/components/fillblanks-exercise/FillBlanksProgress";
@@ -17,6 +17,7 @@ import {
   areSimilarWords,
 } from "@/utils/PerformanceTracker";
 import { evaluateUserPerformance } from "@/rules/evaluateUserPerformance";
+import AIExplanation from "@/components/common/AIExplanation";
 
 interface FillBlanksItem {
   word: string;
@@ -65,6 +66,7 @@ export default function FillBlanksPage() {
 
   const currentItem = questions[currentQuestion];
   const isLastQuestion = currentQuestion === questions.length - 1;
+  const showExplanation = showResult && answers[currentQuestion] === false;
 
   const handleSubmit = () => {
     const normalizedUser = normalizeText(userAnswer);
@@ -222,34 +224,87 @@ export default function FillBlanksPage() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col justify-center px-4 md:px-8 py-6 space-y-8 max-w-4xl mx-auto w-full">
+      <div className="flex-1 flex flex-col justify-center px-4 md:px-8 py-6 space-y-8 max-w-7xl mx-auto w-full">
         <FillBlanksProgress
           currentQuestion={currentQuestion}
           totalQuestions={questions.length}
           answers={answers}
         />
 
-        <motion.div
-          key={currentQuestion}
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -50 }}
-          transition={{ duration: 0.3 }}
-        >
-          <FillBlanksQuestion
-            questionNumber={currentQuestion + 1}
-            totalQuestions={questions.length}
-            sentence={currentItem.sentence}
-            blankWord={currentItem.word}
-            correctAnswer={currentItem.correctAnswer}
-            hint={currentItem.meaning}
-            userAnswer={userAnswer}
-            onAnswerChange={setUserAnswer}
-            onSubmit={handleSubmit}
-            showResult={showResult}
-            isCorrect={answers[currentQuestion]}
-          />
-        </motion.div>
+        {/* Question and Explanation Side by Side */}
+        <div className="flex flex-col lg:flex-row gap-6 items-start">
+          {/* Fill Blanks Question - slides left on desktop when explanation appears */}
+          <motion.div
+            key={currentQuestion}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{
+              opacity: 1,
+              x: 0,
+              flex: showExplanation ? "0 0 42%" : "1 1 100%",
+            }}
+            exit={{ opacity: 0, x: -50 }}
+            transition={{ duration: 0.3 }}
+            className="w-full"
+          >
+            <FillBlanksQuestion
+              questionNumber={currentQuestion + 1}
+              totalQuestions={questions.length}
+              sentence={currentItem.sentence}
+              blankWord={currentItem.word}
+              correctAnswer={currentItem.correctAnswer}
+              hint={currentItem.meaning}
+              userAnswer={userAnswer}
+              onAnswerChange={setUserAnswer}
+              onSubmit={handleSubmit}
+              showResult={showResult}
+              isCorrect={answers[currentQuestion]}
+              onAnswerRevealed={setAnswerRevealed}
+            />
+          </motion.div>
+
+          {/* AI Explanation Panel - slides in from right */}
+          <AnimatePresence>
+            {showExplanation && (
+              <motion.div
+                initial={{ opacity: 0, x: 100, width: 0 }}
+                animate={{ opacity: 1, x: 0, width: "auto" }}
+                exit={{ opacity: 0, x: 100, width: 0 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                className="w-full lg:flex-[0_0_55%]"
+              >
+                <div className="bg-white rounded-2xl shadow-lg border-2 border-purple-200 p-6 h-full space-y-4">
+                  {/* Answer Comparison */}
+                  <div className="bg-red-50 border-2 border-red-200 rounded-lg p-2 space-y-2">
+                    <div className="border-red-200 pt-2 flex flex-row items-center justify-center gap-4">
+                      <p className="text-sm font-semibold text-green-900">
+                        Correct Answer:
+                      </p>
+                      <p className="text-lg text-green-700 font-bold">
+                        {currentItem.correctAnswer}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 pb-3 border-b border-purple-100">
+                    <div className="p-2 bg-purple-100 rounded-lg">
+                      <Lightbulb className="w-5 h-5 text-purple-600" />
+                    </div>
+                    <h3 className="text-lg font-bold text-purple-900">
+                      AI Explanation
+                    </h3>
+                  </div>
+
+                  {/* AI Explanation */}
+                  <AIExplanation
+                    mode="fill-blanks"
+                    word={currentItem.word}
+                    correct={currentItem.correctAnswer}
+                    showProTip={false}
+                  />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
 
         {showResult && (
           <motion.div

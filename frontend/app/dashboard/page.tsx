@@ -136,7 +136,7 @@ export default function Dashboard() {
           Reset All
         </button>
       </div> */}
-      <div className="relative min-h-screen mx-2 pt-16 md:pt-18 pb-2 flex flex-row justify-center items-center gap-2">
+      <div className="relative min-h-screen mx-2 pt-18 md:pt-20 pb-2 flex flex-row justify-center items-center gap-2">
         {/* Left Side */}
         <div
           className={`${
@@ -168,7 +168,7 @@ export default function Dashboard() {
               exit={{ x: "100%", opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
               className={`${
-                isPanelOpen ? "fixed inset-0 z-40 pt-16" : "hidden lg:flex"
+                isPanelOpen ? "fixed inset-0 z-40 pt-18" : "hidden lg:flex"
               } lg:relative lg:flex flex-1 flex-col h-full rounded-2xl`}
             >
               {/* Overlay for mobile */}
