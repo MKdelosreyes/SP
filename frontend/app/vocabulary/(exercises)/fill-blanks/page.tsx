@@ -298,6 +298,7 @@ export default function FillBlanksPage() {
                     mode="fill-blanks"
                     word={currentItem.word}
                     correct={currentItem.correctAnswer}
+                    selected={userAnswer}
                     showProTip={false}
                   />
                 </div>

@@ -1,5 +1,7 @@
 "use client";
 
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
 import VocabularyCard from "@/components/VocabularyCard";
 import ProgressStepper from "./_progress/ProgressStepper";
 import { useVocabularyProgress } from "@/hooks/useVocabularyProgress";
@@ -10,6 +12,17 @@ export default function VocabularyPage() {
   return (
     <div className="w-full min-h-screen flex items-center justify-center p-4 md:p-10 bg-gray-50">
       <div className="w-full max-w-6xl">
+        {/* Back Button */}
+        <div className="mb-6">
+          <Link
+            href="/dashboard"
+            className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold text-sm transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back to Dashboard
+          </Link>
+        </div>
+
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl md:text-4xl font-bold text-purple-900 mb-2 text-center">
