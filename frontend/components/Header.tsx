@@ -11,7 +11,7 @@ export default function Header() {
       <div className="bg-white w-full m-2 p-3 flex items-center justify-between rounded-2xl font-(--font-mono) border border-gray-300">
         <a href="#" className="w-28 md:w-32">
           <Image
-            src={"/aralila-logo-text.png"}
+            src={"/pandiwa-logo-text-p.svg"}
             alt="Logo"
             width={100}
             height={20}
@@ -21,22 +21,22 @@ export default function Header() {
         </a>
         <div className="flex items-center gap-2 md:gap-6">
           <div className="hidden sm:flex flex-row gap-2 items-center justify-center">
-            <Avatar className="w-8 h-8 md:w-10 md:h-10 relative ring-2 ring-purple-500 shadow-[0_0_12px_3px_rgba(168,85,247,0.5)]">
+            <Avatar className="w-8 h-8 md:w-10 md:h-10 relative ring-2 ring-blue-500 shadow-[0_0_12px_3px_rgba(13,81,125,0.5)]">
               <AvatarImage
                 alt="Student Avatar"
                 className="object-cover"
                 //   src={}
               />
-              <AvatarFallback className="bg-purple-900 text-white text-xs md:text-sm">
+              <AvatarFallback className="bg-blue-900 text-white text-xs md:text-sm">
                 GU
               </AvatarFallback>
             </Avatar>
 
             <div className="flex flex-col">
-              <span className="font-bold text-sm md:text-base text-purple-950">
+              <span className="font-bold text-sm md:text-base text-blue-950">
                 Test One
               </span>
-              <span className="text-xs text-purple-700 hidden md:block">
+              <span className="text-xs text-blue-700 hidden md:block">
                 test@example.com
               </span>
             </div>
@@ -44,9 +44,9 @@ export default function Header() {
 
           {/* Mobile: Avatar only */}
           <div className="sm:hidden">
-            <Avatar className="w-8 h-8 relative ring-2 ring-purple-500 shadow-[0_0_12px_3px_rgba(168,85,247,0.5)]">
+            <Avatar className="w-8 h-8 relative ring-2 ring-blue-500 shadow-[0_0_12px_3px_rgba(13,81,125,0.5)]">
               <AvatarImage alt="Student Avatar" className="object-cover" />
-              <AvatarFallback className="bg-purple-900 text-white text-xs">
+              <AvatarFallback className="bg-blue-900 text-white text-xs">
                 GU
               </AvatarFallback>
             </Avatar>
@@ -66,7 +66,7 @@ export default function Header() {
                 exit={{ scale: 0.5, opacity: 0, rotate: -45 }}
                 transition={{ duration: 0.2 }}
               >
-                <MenuIcon className="w-5 h-5 md:w-5 md:h-5 text-purple-950" />
+                <MenuIcon className="w-5 h-5 md:w-5 md:h-5 text-blue-950" />
               </motion.div>
             </AnimatePresence>
           </button>

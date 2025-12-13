@@ -255,19 +255,19 @@ export default function QuizPage() {
   };
 
   return (
-    <div className="h-screen bg-purple-50 overflow-auto flex flex-col scrollbar-purple">
+    <div className="h-screen bg-blue-50 overflow-auto flex flex-col scrollbar-blue">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-purple-200">
+      <div className="flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-blue-200">
         <Link
           href="/vocabulary"
-          className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold text-sm"
+          className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
           Back
         </Link>
 
         <div className="text-center flex-1 px-4">
-          <h1 className="text-xl md:text-2xl font-bold text-purple-900">
+          <h1 className="text-xl md:text-2xl font-bold text-blue-900">
             Multiple Choice Quiz
           </h1>
         </div>
@@ -320,14 +320,14 @@ export default function QuizPage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleNext}
-              className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-colors"
+              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-colors"
             >
               {isLastQuestion ? "Finish Quiz" : "Next Question"}
               <ChevronRight className="w-5 h-5" />
             </motion.button>
           </motion.div>
         ) : (
-          <div className="text-center text-xs text-purple-600">
+          <div className="text-center text-xs text-blue-600">
             💡 Select the correct meaning for each word
           </div>
         )}

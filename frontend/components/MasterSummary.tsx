@@ -33,18 +33,18 @@ export default function MasterySummary() {
         return (
           <div
             key={module}
-            className="bg-white border border-gray-200 rounded-lg p-3 hover:border-purple-300 transition-colors"
+            className="bg-white border border-gray-200 rounded-lg p-3 hover:border-blue-300 transition-colors"
           >
             <div className="flex items-center justify-between mb-2">
               <h4 className="font-semibold text-sm text-gray-800">
                 {info.name}
+                <div
+                  className={`flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-bold border ${mastery.color}`}
+                >
+                  <span>{mastery.icon}</span>
+                  <span className="capitalize">{mastery.level}</span>
+                </div>
               </h4>
-              <div
-                className={`flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-bold border ${mastery.color}`}
-              >
-                <span>{mastery.icon}</span>
-                <span className="capitalize">{mastery.level}</span>
-              </div>
             </div>
 
             <div className="flex items-center justify-between text-xs text-gray-600">

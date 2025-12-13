@@ -77,7 +77,7 @@ const CardCarousel = ({ skill_cards = [] }: CardCarouselProps) => {
       {/* Left Button */}
       {currentIndex === 0 ? (
         <div className="absolute left-4 z-20">
-          <span className="text-purple-600 text-xs">Back to Home</span>
+          <span className="text-blue-600 text-xs">Back to Home</span>
         </div>
       ) : (
         <div className="absolute left-4 z-20">
@@ -88,7 +88,7 @@ const CardCarousel = ({ skill_cards = [] }: CardCarouselProps) => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={prevCard}
-            className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all duration-300 shadow-lg"
+            className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300 shadow-lg"
             aria-label="Previous card"
           >
             <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
@@ -135,7 +135,7 @@ const CardCarousel = ({ skill_cards = [] }: CardCarouselProps) => {
       {/* Right Button */}
       {currentIndex === skill_cards.length - 1 ? (
         <div className="absolute right-4 z-20">
-          <span className="text-purple-600 text-xs">Back to Home</span>
+          <span className="text-blue-600 text-xs">Back to Home</span>
         </div>
       ) : (
         <div className="absolute right-4 z-20">
@@ -146,7 +146,7 @@ const CardCarousel = ({ skill_cards = [] }: CardCarouselProps) => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             onClick={nextCard}
-            className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition-all duration-300 shadow-lg"
+            className="flex items-center justify-center w-10 h-10 md:w-12 md:h-12 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all duration-300 shadow-lg"
             aria-label="Next card"
           >
             <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />

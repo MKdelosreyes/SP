@@ -70,13 +70,13 @@ export default function FlashcardCompletionModal({
               </div>
 
               {/* Stats */}
-              <div className="space-y-3 bg-purple-50 rounded-2xl p-6">
+              <div className="space-y-3 bg-blue-50 rounded-2xl p-6">
                 <div className="flex items-center justify-between">
                   <span className="text-gray-700 font-medium flex items-center gap-2">
-                    <Award className="w-5 h-5 text-purple-600" />
+                    <Award className="w-5 h-5 text-blue-600" />
                     Mastery Score
                   </span>
-                  <span className="text-2xl font-bold text-purple-600">
+                  <span className="text-2xl font-bold text-blue-600">
                     {score}%
                   </span>
                 </div>
@@ -106,7 +106,7 @@ export default function FlashcardCompletionModal({
               <div className="flex flex-col gap-3">
                 <Link
                   href="/vocabulary/quiz"
-                  className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors text-center"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors text-center"
                 >
                   Continue to Quiz →
                 </Link>
