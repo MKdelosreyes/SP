@@ -53,7 +53,7 @@ export default function VocabularyCard({
   const masteryColors = {
     beginner: "bg-gray-100 text-gray-700",
     developing: "bg-blue-100 text-blue-700",
-    proficient: "bg-purple-100 text-purple-700",
+    proficient: "bg-blue-100 text-blue-700",
     advanced: "bg-orange-100 text-orange-700",
     master: "bg-yellow-100 text-yellow-700",
   };
@@ -77,14 +77,14 @@ export default function VocabularyCard({
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
           className={`relative flex flex-col items-center justify-between gap-4 p-6 border-4 ${
             isRecommended
-              ? "border-purple-500 ring-4 ring-purple-300"
+              ? "border-blue-500 ring-4 ring-blue-300"
               : isCompleted
-              ? "border-purple-200"
+              ? "border-blue-200"
               : isLocked
               ? "border-gray-300"
-              : "border-purple-300"
+              : "border-blue-300"
           } ${color} rounded-2xl shadow-lg hover:shadow-2xl ${
-            !isLocked && "hover:border-purple-500"
+            !isLocked && "hover:border-blue-500"
           } transition-all duration-300 h-full min-h-[16rem] ${
             isLocked ? "opacity-60" : ""
           }`}
@@ -92,7 +92,7 @@ export default function VocabularyCard({
           {/* Status Badges - Top Left */}
           <div className="absolute top-3 left-3 flex flex-col gap-2">
             {isRecommended && (
-              <div className="flex items-center gap-1 bg-purple-500 text-white px-2 py-1 rounded-full text-xs font-bold shadow-md">
+              <div className="flex items-center gap-1 bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold shadow-md">
                 <Sparkles size={14} />
                 <span>Next</span>
               </div>
@@ -128,7 +128,7 @@ export default function VocabularyCard({
               </div>
 
               {/* Session Count */}
-              <div className="bg-white text-purple-700 px-3 py-1 rounded-full text-xs font-bold shadow-sm border border-purple-200">
+              <div className="bg-white text-blue-700 px-3 py-1 rounded-full text-xs font-bold shadow-sm border border-blue-200">
                 {exerciseMastery.sessionsAtDifficulty} session
                 {exerciseMastery.sessionsAtDifficulty !== 1 ? "s" : ""}
               </div>
@@ -154,7 +154,7 @@ export default function VocabularyCard({
               className={`text-lg md:text-xl font-bold transition-colors ${
                 isLocked
                   ? "text-gray-500"
-                  : "text-purple-900 group-hover:text-purple-600"
+                  : "text-blue-900 group-hover:text-blue-600"
               }`}
             >
               {name}
@@ -167,7 +167,7 @@ export default function VocabularyCard({
           {/* Hover indicator */}
           {!isLocked && (
             <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse" />
+              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
             </div>
           )}
         </motion.div>

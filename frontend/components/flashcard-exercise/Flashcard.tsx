@@ -161,14 +161,14 @@ export default function Flashcard({
             transform: "rotateY(0deg)",
           }}
         >
-          <div className="w-full h-full bg-purple-100 rounded-3xl shadow-xl p-6 md:p-8 flex flex-col items-center justify-center border-4 border-purple-300 overflow-y-auto">
+          <div className="w-full h-full bg-blue-100 rounded-3xl shadow-xl p-6 md:p-8 flex flex-col items-center justify-center border-4 border-blue-300 overflow-y-auto">
             {/* Add to Review Deck Button - Front */}
             <button
               onClick={handleToggleReviewDeck}
               className={`absolute top-4 right-4 p-2 rounded-lg transition-all ${
                 inReviewDeck
-                  ? "bg-purple-600 text-white"
-                  : "bg-white text-purple-600 border-2 border-purple-300"
+                  ? "bg-blue-600 text-white"
+                  : "bg-white text-blue-600 border-2 border-blue-300"
               } hover:scale-110`}
             >
               {inReviewDeck ? (
@@ -179,14 +179,14 @@ export default function Flashcard({
             </button>
 
             <div className="text-center space-y-4 md:space-y-6">
-              <p className="text-purple-600 text-sm md:text-base font-semibold">
+              <p className="text-blue-600 text-sm md:text-base font-semibold">
                 Salita / Word
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-purple-900">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-blue-900">
                 {word}
               </h2>
             </div>
-            <p className="absolute bottom-6 text-purple-500 text-xs md:text-sm animate-pulse">
+            <p className="absolute bottom-6 text-blue-500 text-xs md:text-sm animate-pulse">
               Click to see meaning →
             </p>
           </div>

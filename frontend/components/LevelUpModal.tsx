@@ -25,7 +25,7 @@ export default function LevelUpModal({
         particleCount: 200,
         spread: 100,
         origin: { y: 0.5 },
-        colors: ["#9333ea", "#ec4899", "#06b6d4", "#fbbf24"],
+        colors: ["#0D517D", "#ec4899", "#06b6d4", "#fbbf24"],
       });
 
       const timer = setTimeout(onClose, 3000);
@@ -59,13 +59,13 @@ export default function LevelUpModal({
               >
                 {icon}
               </motion.div>
-              <h2 className="text-3xl font-bold text-purple-900 mb-2">
+              <h2 className="text-3xl font-bold text-blue-900 mb-2">
                 Level Up!
               </h2>
               <p className="text-gray-600 mb-4">
                 You've advanced from{" "}
                 <span className="font-bold capitalize">{fromLevel}</span> to{" "}
-                <span className="font-bold capitalize text-purple-600">
+                <span className="font-bold capitalize text-blue-600">
                   {toLevel}
                 </span>
                 !

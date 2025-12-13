@@ -44,10 +44,10 @@ const DashboardCard = ({
         animate="visible"
         variants={cardVariants}
         className={`
-        bg-white border-5 border-purple-300 rounded-3xl
+        bg-white border-5 border-blue-300 rounded-3xl
         p-6 flex flex-col h-full
         transition-all duration-300
-        hover:bg-purple-50 hover:border-purple-500
+        hover:bg-blue-50 hover:border-blue-500
         ${className}
       `}
       >
@@ -55,7 +55,7 @@ const DashboardCard = ({
       </motion.div>
       <div className="flex flex-col gap-3 p-2">
         <div
-          className={`py-1 w-fit px-3 text-center text-xs font-semibold text-purple-600 ${color} rounded-4xl`}
+          className={`py-1 w-fit px-3 text-center text-xs font-semibold text-blue-600 ${color} rounded-4xl`}
         >
           {skill}
         </div>

@@ -26,9 +26,9 @@ export default function RecommendedPathIndicator() {
   ] as const;
 
   return (
-    <div className="w-full bg-white rounded-xl p-4 shadow-lg border-2 border-purple-200 mb-4">
-      <h3 className="text-sm font-bold text-purple-900 mb-3 flex items-center gap-2">
-        <span className="text-purple-600">🎯</span>
+    <div className="w-full bg-white rounded-xl p-4 shadow-lg border-2 border-blue-200 mb-4">
+      <h3 className="text-sm font-bold text-blue-900 mb-3 flex items-center gap-2">
+        <span className="text-blue-600">🎯</span>
         Recommended Learning Path
       </h3>
 
@@ -45,7 +45,7 @@ export default function RecommendedPathIndicator() {
                   isCompleted
                     ? "bg-green-100 text-green-700 border border-green-300"
                     : isRecommended
-                    ? "bg-purple-600 text-white ring-2 ring-purple-300 animate-pulse"
+                    ? "bg-blue-600 text-white ring-2 ring-blue-300 animate-pulse"
                     : "bg-gray-100 text-gray-500"
                 }`}
               >

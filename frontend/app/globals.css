@@ -97,11 +97,6 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
@@ -139,30 +134,30 @@
     scrollbar-width: none;
   }
 
-.scrollbar-purple {
+.scrollbar-blue {
   scrollbar-width: thin;
-  scrollbar-color: rgb(187, 138, 234) transparent;
+  scrollbar-color: rgb(13,81,125) transparent;
 }
 
-.scrollbar-purple::-webkit-scrollbar {
+.scrollbar-blue::-webkit-scrollbar {
   width: 8px;
 }
 
-.scrollbar-purple::-webkit-scrollbar-track {
+.scrollbar-blue::-webkit-scrollbar-track {
   background: transparent;
   border-radius: 8px;
 }
 
-.scrollbar-purple::-webkit-scrollbar-thumb {
-  background: rgb(159,89,223);
+.scrollbar-blue::-webkit-scrollbar-thumb {
+  background: rgb(13,81,125);
   border-radius: 8px;
 }
 
-.scrollbar-purple::-webkit-scrollbar-thumb:hover {
-  background: rgb(83, 47, 114);
+.scrollbar-blue::-webkit-scrollbar-thumb:hover {
+  background: rgb(10,62,96);
 }
 
-.scrollbar-purple::-webkit-scrollbar-button {
+.scrollbar-blue::-webkit-scrollbar-button {
   display: none;
   height: 0;
   width: 0;

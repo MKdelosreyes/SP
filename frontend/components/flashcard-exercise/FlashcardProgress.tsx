@@ -27,9 +27,9 @@ export default function FlashcardProgress({
           </span>
           <span className="font-semibold">{Math.round(progress)}%</span>
         </div>
-        <div className="w-full h-2.5 bg-purple-100 rounded-full overflow-hidden">
+        <div className="w-full h-2.5 bg-blue-100 rounded-full overflow-hidden">
           <motion.div
-            className="h-full bg-gradient-to-r from-purple-400 to-purple-600"
+            className="h-full bg-gradient-to-r from-blue-400 to-blue-600"
             initial={{ width: 0 }}
             animate={{ width: `${progress}%` }}
             transition={{ duration: 0.5 }}

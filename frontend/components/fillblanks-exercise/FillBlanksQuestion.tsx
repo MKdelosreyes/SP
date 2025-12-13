@@ -102,7 +102,7 @@ export default function FillBlanksQuestion({
 
   return (
     <div className="w-full max-w-3xl mx-auto space-y-6">
-      <div className="bg-white rounded-2xl p-6 md:p-8 border-3 border-purple-200 shadow-lg">
+      <div className="bg-white rounded-2xl p-6 md:p-8 border-3 border-blue-200 shadow-lg">
         <p className="text-lg md:text-xl text-gray-800 leading-relaxed text-center font-mono">
           {sentenceWithBlank}
         </p>
@@ -125,7 +125,7 @@ export default function FillBlanksQuestion({
               ? isCorrect
                 ? "border-green-500 bg-green-50 text-green-900"
                 : "border-red-500 bg-red-50 text-red-900"
-              : "border-purple-300 focus:border-purple-500 focus:ring-purple-200"
+              : "border-blue-300 focus:border-blue-500 focus:ring-blue-200"
           }`}
         />
       </div>
@@ -174,9 +174,9 @@ export default function FillBlanksQuestion({
             onClick={handleToggleReviewDeck}
             className={`flex items-center justify-center gap-2 font-semibold py-3 px-6 rounded-xl transition-all border-2 ${
               inReviewDeck
-                ? "bg-purple-600 text-white border-purple-600"
-                : "bg-white text-purple-600 border-purple-300 hover:bg-purple-50"
-            }`}
+                ? "bg-blue-600 text-white border-blue-600"
+                : "bg-white text-blue-600 border-blue-300 hover:bg-blue-50"
+            }`}>
           >
             {inReviewDeck ? (
               <>
@@ -205,7 +205,7 @@ export default function FillBlanksQuestion({
             whileTap={{ scale: 0.95 }}
             onClick={onSubmit}
             disabled={!userAnswer.trim()}
-            className="flex items-center justify-center gap-2 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-colors"
+            className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-colors"
           >
             Suriin ang Sagot
           </motion.button>

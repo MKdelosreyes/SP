@@ -5,19 +5,19 @@ import Link from "next/link";
 
 export default function ErrorIdentificationPage() {
   return (
-    <div className="h-screen max-h-screen overflow-hidden flex flex-col bg-purple-50">
+    <div className="h-screen max-h-screen overflow-hidden flex flex-col bg-blue-50">
       {/* Header */}
-      <div className="flex-shrink-0 flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-purple-200">
+      <div className="flex-shrink-0 flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-blue-200">
         <Link
           href="/vocabulary"
-          className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold text-sm"
+          className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
           Back
         </Link>
 
         <div className="text-center flex-1 px-4">
-          <h1 className="text-xl md:text-2xl font-bold text-purple-900">
+          <h1 className="text-xl md:text-2xl font-bold text-blue-900">
             Error Identification Practice
           </h1>
         </div>
