@@ -96,16 +96,26 @@ export default function QuizCompletionModal({
             onClick={onClose}
           />
 
-          {/* Modal Container - Centered with flex */}
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-2 overflow-y-auto">
-            <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-stretch w-full max-w-5xl">
+          {/* Modal Container - Centered, then shifts when tips appear */}
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
+            <div
+              className={`flex flex-col lg:flex-row gap-4 lg:gap-6 items-stretch w-full transition-all duration-500 ${
+                showTips ? "max-w-5xl" : "max-w-md"
+              }`}
+            >
               {/* Main Modal */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.8, x: -50 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                exit={{ opacity: 0, scale: 0.8, x: -50 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  x: showTips ? 0 : 0,
+                }}
+                exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.3 }}
-                className="bg-white rounded-3xl shadow-2xl w-full lg:w-96 flex-shrink-0"
+                className={`bg-white rounded-3xl shadow-2xl w-full flex-shrink-0 ${
+                  showTips ? "lg:w-96" : ""
+                }`}
               >
                 <div className="p-8 space-y-6 h-full flex flex-col">
                   {/* Icon */}

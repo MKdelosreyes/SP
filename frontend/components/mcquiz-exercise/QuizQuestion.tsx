@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
+import { useReviewDeck } from "@/contexts/ReviewDeckProvider";
+import { vocabularyData } from "@/data/vocabulary-dataset";
 
 interface QuizQuestionProps {
   questionNumber: number;
@@ -24,13 +26,26 @@ export default function QuizQuestion({
   onSelectAnswer,
   showResult,
 }: QuizQuestionProps) {
+  const { addToReviewDeck, removeFromReviewDeck, isInReviewDeck } =
+    useReviewDeck();
+
+  // Find word ID
+  const wordData = vocabularyData.find((w) => w.word === word);
+  const wordId = wordData?.id || 0;
+  const inReviewDeck = isInReviewDeck(wordId);
+
+  const handleToggleReviewDeck = () => {
+    if (inReviewDeck) {
+      removeFromReviewDeck(wordId);
+    } else {
+      addToReviewDeck(wordId);
+    }
+  };
+
   return (
     <div className="w-full max-w-3xl mx-auto space-y-6">
       {/* Question Header */}
       <div className="text-center space-y-2">
-        {/* <p className="text-sm text-purple-600 font-semibold">
-          Tanong {questionNumber} ng {totalQuestions}
-        </p> */}
         <h2 className="text-2xl md:text-3xl font-bold text-purple-900">
           Ano ang kahulugan ng &quot;{word}&quot;?
         </h2>

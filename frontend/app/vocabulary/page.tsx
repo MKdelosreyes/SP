@@ -1,13 +1,15 @@
 "use client";
 
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, BookOpen } from "lucide-react";
 import Link from "next/link";
 import VocabularyCard from "@/components/VocabularyCard";
 import ProgressStepper from "./_progress/ProgressStepper";
 import { useVocabularyProgress } from "@/hooks/useVocabularyProgress";
+import { useReviewDeck } from "@/contexts/ReviewDeckProvider";
 
 export default function VocabularyPage() {
   const { getVocabularyMastery } = useVocabularyProgress();
+  const { reviewDeck } = useReviewDeck();
   const mastery = getVocabularyMastery();
 
   const masteryColors = {
@@ -19,8 +21,8 @@ export default function VocabularyPage() {
   };
 
   return (
-    <div className="w-full min-h-screen flex items-center justify-center p-4 md:p-10 bg-gray-50">
-      <div className="w-full max-w-6xl">
+    <div className="w-full min-h-screen flex items-start justify-center py-4 px-6 md:p-7 bg-gray-50">
+      <div className="w-full md:max-w-7xl">
         {/* Top Bar - Back Button & Mastery Display */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
           {/* Back Button - Left */}
@@ -69,6 +71,25 @@ export default function VocabularyPage() {
 
           {/* Progress Stepper */}
           <ProgressStepper />
+
+          {/* Review Deck Link */}
+          {/* {reviewDeck.length > 0 && (
+            <div className="flex justify-center mt-6">
+              <Link
+                href="/vocabulary/review-deck"
+                className="flex items-center gap-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-all hover:scale-105"
+              >
+                <BookOpen className="w-5 h-5" />
+                <div className="text-left">
+                  <p className="text-sm opacity-90">Review Deck</p>
+                  <p className="text-xs opacity-75">
+                    {reviewDeck.length} card{reviewDeck.length !== 1 ? "s" : ""}{" "}
+                    to review
+                  </p>
+                </div>
+              </Link>
+            </div>
+          )} */}
         </div>
 
         {/* Cards */}
@@ -92,7 +113,7 @@ export default function VocabularyPage() {
           <VocabularyCard
             name="Fill-in-the-Blanks"
             description="Complete sentences with correct words"
-            imagePath="/art/flashcards-icon.png"
+            imagePath="/art/card3.png"
             color="bg-green-50"
             url="/vocabulary/fill-blanks"
             exerciseType="fill-blanks"

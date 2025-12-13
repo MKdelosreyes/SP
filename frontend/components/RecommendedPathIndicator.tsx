@@ -1,6 +1,7 @@
 "use client";
 
 import { useLearningProgress } from "@/contexts/LearningProgressContext";
+import { useDashboardInsights } from "@/hooks/useDashboardInsights";
 import { ArrowRight, Check } from "lucide-react";
 
 const moduleNames = {
@@ -13,14 +14,15 @@ const moduleNames = {
 export default function RecommendedPathIndicator() {
   const { progress, getRecommendedModule, isModuleCompleted } =
     useLearningProgress();
+  const { getModuleMastery } = useDashboardInsights();
 
   const recommended = getRecommendedModule();
 
   const steps = [
     "vocabulary",
     "grammar",
-    "sentence-construction",
     "reading-comprehension",
+    "sentence-construction",
   ] as const;
 
   return (
@@ -34,21 +36,31 @@ export default function RecommendedPathIndicator() {
         {steps.map((module, index) => {
           const isCompleted = isModuleCompleted(module);
           const isRecommended = recommended === module;
+          const mastery = getModuleMastery(module);
 
           return (
             <div key={module} className="flex items-center gap-2">
               <div
-                className={`px-3 py-1.5 rounded-full font-semibold transition-all ${
+                className={`px-3 py-1. 5 rounded-full font-semibold transition-all ${
                   isCompleted
-                    ? "bg-green-100 text-green-700"
+                    ? "bg-green-100 text-green-700 border border-green-300"
                     : isRecommended
                     ? "bg-purple-600 text-white ring-2 ring-purple-300 animate-pulse"
                     : "bg-gray-100 text-gray-500"
                 }`}
               >
-                <div className="flex items-center gap-1.5">
-                  {isCompleted && <Check size={14} />}
-                  {moduleNames[module]}
+                <div className="flex items-center gap-1. 5">
+                  {isCompleted ? (
+                    <Check size={14} />
+                  ) : mastery.level !== "beginner" ? (
+                    <span>{mastery.icon}</span>
+                  ) : null}
+                  <span>{moduleNames[module]}</span>
+                  {mastery.level !== "beginner" && !isCompleted && (
+                    <span className="text-xs opacity-75 capitalize">
+                      ({mastery.level})
+                    </span>
+                  )}
                 </div>
               </div>
 

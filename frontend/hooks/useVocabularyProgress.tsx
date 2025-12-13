@@ -121,7 +121,7 @@ export function useVocabularyProgress() {
         level: "developing",
         difficulty: currentDiff,
         description: "Making steady progress",
-        icon: "📘",
+        icon: "🔧",
       };
     }
 
@@ -129,7 +129,7 @@ export function useVocabularyProgress() {
       level: "beginner",
       difficulty: "easy",
       description: "Just getting started",
-      icon: "🌱",
+      icon: "🐣",
     };
   };
 
@@ -146,7 +146,7 @@ export function useVocabularyProgress() {
         : 0;
 
     let level: MasteryLevel = "beginner";
-    let icon = "🌱";
+    let icon = "🐣";
 
     if (currentDiff === "hard" && sessionsAtDifficulty >= 5 && avgScore >= 90) {
       level = "master";
@@ -163,7 +163,7 @@ export function useVocabularyProgress() {
       icon = "⭐";
     } else if (sessionsAtDifficulty >= 3 || currentDiff === "medium") {
       level = "developing";
-      icon = "📘";
+      icon = "🔧";
     }
 
     return {

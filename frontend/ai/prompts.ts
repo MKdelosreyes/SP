@@ -92,7 +92,7 @@ Base example: ${example}
 
 Return:
 - Easy definition (casual, must be in English)
-- Formal definition (academic)
+- Brief formal definition (academic, must be in Filipino)
 - 2 new example sentences (Filipino)
 - 1 short bilingual gloss (Filipino)`;
 }

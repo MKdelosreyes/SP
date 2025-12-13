@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, CheckCircle, RotateCcw, X } from "lucide-react";
 import Link from "next/link";
@@ -29,21 +29,51 @@ export default function FlashcardsPage() {
   const allIds = vocabularyData.map((w) => w.id);
   const { dueIds, grade } = useSRS(allIds);
 
-  // Prefer due cards; fall back to random if none
-  const [sessionWords] = useState(() => {
+  const [sessionWords, setSessionWords] = useState<typeof vocabularyData>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [cardStates, setCardStates] = useState<CardState[]>([]);
+  const [showCompletion, setShowCompletion] = useState(false);
+
+  // Initialize session words on client side only
+  useEffect(() => {
     const dueWords = vocabularyData.filter((w) => dueIds.includes(w.id));
     const base = dueWords.length
       ? dueWords
       : [...vocabularyData].sort(() => Math.random() - 0.5).slice(0, 15);
-    return base.slice(0, 15);
-  });
+    const words = base.slice(0, 15);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isFlipped, setIsFlipped] = useState(false);
-  const [cardStates, setCardStates] = useState<CardState[]>(
-    sessionWords.map((word) => ({ id: word.id, status: "unseen", flips: 0 }))
-  );
-  const [showCompletion, setShowCompletion] = useState(false);
+    setSessionWords(words);
+    setCardStates(
+      words.map((word) => ({ id: word.id, status: "unseen", flips: 0 }))
+    );
+  }, []); // Empty dependency array - only run once on mount
+
+  // Show loading state while initializing
+  if (sessionWords.length === 0) {
+    return (
+      <div className="h-screen max-h-screen overflow-hidden flex flex-col bg-purple-50">
+        <div className="flex-shrink-0 flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-purple-200">
+          <Link
+            href="/vocabulary"
+            className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold text-sm"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back
+          </Link>
+          <div className="text-center flex-1 px-4">
+            <h1 className="text-xl md:text-2xl font-bold text-purple-900">
+              Flashcards Practice
+            </h1>
+          </div>
+          <div className="w-20"></div>
+        </div>
+        <div className="flex-1 flex items-center justify-center">
+          <div className="text-purple-600">Loading...</div>
+        </div>
+      </div>
+    );
+  }
 
   const currentWord = sessionWords[currentIndex];
   const masteredCount = cardStates.filter(
@@ -156,9 +186,9 @@ export default function FlashcardsPage() {
   };
 
   return (
-    <div className="h-screen bg-purple-50 overflow-auto flex flex-col scrollbar-purple">
+    <div className="h-screen max-h-screen overflow-hidden flex flex-col bg-purple-50">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-purple-200">
+      <div className="flex-shrink-0 flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-purple-200">
         <Link
           href="/vocabulary"
           className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold text-sm"
@@ -183,15 +213,19 @@ export default function FlashcardsPage() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col justify-center px-4 md:px-8 py-6 space-y-6 max-w-4xl mx-auto w-full">
-        <FlashcardProgress
-          current={currentIndex}
-          total={sessionWords.length}
-          masteredCount={masteredCount}
-          learningCount={learningCount}
-        />
+      <div className="flex-1 flex flex-col px-4 md:px-8 py-4 md:py-6 gap-3 md:gap-4 max-w-4xl mx-auto w-full min-h-0 overflow-y-auto scrollbar-purple md:overflow-hidden">
+        {/* Progress - Fixed Height */}
+        <div className="flex-shrink-0">
+          <FlashcardProgress
+            current={currentIndex}
+            total={sessionWords.length}
+            masteredCount={masteredCount}
+            learningCount={learningCount}
+          />
+        </div>
 
-        <div className="flex justify-center">
+        {/* Flashcard - Responsive Height */}
+        <div className="flex-shrink-0 md:flex-1 flex items-center justify-center md:min-h-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
@@ -199,7 +233,7 @@ export default function FlashcardsPage() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
-              className="w-full"
+              className="w-full h-full flex items-center justify-center"
             >
               <Flashcard
                 word={currentWord.word}
@@ -207,17 +241,19 @@ export default function FlashcardsPage() {
                 example={currentWord.example}
                 isFlipped={isFlipped}
                 onFlip={handleFlip}
+                wordId={currentWord.id}
               />
             </motion.div>
           </AnimatePresence>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-2xl mx-auto w-full">
+        {/* Buttons - Fixed Height */}
+        <div className="flex-shrink-0 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-2xl mx-auto w-full">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleStillLearning}
-            className="flex items-center justify-center gap-2 bg-orange-100 hover:bg-orange-200 text-orange-700 font-bold py-4 px-8 rounded-xl shadow-lg transition-colors border-2 border-orange-300 flex-1"
+            className="flex items-center justify-center gap-2 bg-orange-100 hover:bg-orange-200 text-orange-700 font-bold py-3 px-8 rounded-xl shadow-lg transition-colors border-2 border-orange-300 flex-1"
           >
             <X className="w-5 h-5" />
             <span>Still Learning</span>
@@ -227,7 +263,7 @@ export default function FlashcardsPage() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleKnowIt}
-            className="flex items-center justify-center gap-2 bg-green-100 hover:bg-green-200 text-green-700 font-bold py-4 px-8 rounded-xl shadow-lg transition-colors border-2 border-green-300 flex-1"
+            className="flex items-center justify-center gap-2 bg-green-100 hover:bg-green-200 text-green-700 font-bold py-3 px-8 rounded-xl shadow-lg transition-colors border-2 border-green-300 flex-1"
           >
             <CheckCircle className="w-5 h-5" />
             <span>{isLastCard ? "Finish" : "I Know This"}</span>

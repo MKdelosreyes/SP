@@ -10,6 +10,7 @@ import MainBG from "@/components/MainBG";
 import { ModuleType } from "@/contexts/LearningProgressContext";
 import RecommendedPathIndicator from "@/components/RecommendedPathIndicator";
 import { useLearningProgress } from "@/contexts/LearningProgressContext";
+import MasterySummary from "@/components/MasterSummary";
 
 interface Card {
   title: string;
@@ -43,16 +44,6 @@ const cards: Card[] = [
     moduleType: "grammar",
   },
   {
-    title: "Build-a-Sentence",
-    skill: "Sentence Construction",
-    imagePath: "/art/sentence-construction.png",
-    description:
-      "Ayusin at buuin ang mga pangungusap para sa mas mahusay na pag-unawa at pagpapahayag.",
-    color: "bg-blue-100",
-    url: "/sentence-construction",
-    moduleType: "sentence-construction",
-  },
-  {
     title: "Read & Understand",
     skill: "Reading Comprehension",
     imagePath: "/art/reading-comprehension.png",
@@ -61,6 +52,16 @@ const cards: Card[] = [
     color: "bg-pink-100",
     url: "/reading-comprehension",
     moduleType: "reading-comprehension",
+  },
+  {
+    title: "Build-a-Sentence",
+    skill: "Sentence Construction",
+    imagePath: "/art/sentence-construction.png",
+    description:
+      "Ayusin at buuin ang mga pangungusap para sa mas mahusay na pag-unawa at pagpapahayag.",
+    color: "bg-blue-100",
+    url: "/sentence-construction",
+    moduleType: "sentence-construction",
   },
 ];
 
@@ -206,7 +207,9 @@ export default function Dashboard() {
                 {/* Body content */}
                 <div className="flex w-full flex-1 bg-white rounded-b-2xl p-5 overflow-y-auto border-b border-x border-gray-300">
                   {activeTab === "recommended" ? (
-                    <div>Recommended content</div>
+                    <div className="w-full">
+                      <MasterySummary />
+                    </div>
                   ) : (
                     <div>Strengths and Weaknesses content</div>
                   )}

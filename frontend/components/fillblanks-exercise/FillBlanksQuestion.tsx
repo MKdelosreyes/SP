@@ -1,8 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Lightbulb, Eye, EyeOff } from "lucide-react";
+import {
+  Lightbulb,
+  Eye,
+  EyeOff,
+  BookmarkCheck,
+  BookmarkPlus,
+} from "lucide-react";
 import { useState } from "react";
+import { useReviewDeck } from "@/contexts/ReviewDeckProvider";
+import { vocabularyData } from "@/data/vocabulary-dataset";
 
 interface FillBlanksQuestionProps {
   questionNumber: number;
@@ -34,12 +42,27 @@ export default function FillBlanksQuestion({
   onAnswerRevealed,
 }: FillBlanksQuestionProps) {
   const [showAnswer, setShowAnswer] = useState(false);
+  const { addToReviewDeck, removeFromReviewDeck, isInReviewDeck } =
+    useReviewDeck();
+
+  // Find word ID
+  const wordData = vocabularyData.find((w) => w.word === blankWord);
+  const wordId = wordData?.id || 0;
+  const inReviewDeck = isInReviewDeck(wordId);
 
   const handleToggleAnswer = () => {
     const newState = !showAnswer;
     setShowAnswer(newState);
     if (onAnswerRevealed) {
       onAnswerRevealed(newState);
+    }
+  };
+
+  const handleToggleReviewDeck = () => {
+    if (inReviewDeck) {
+      removeFromReviewDeck(wordId);
+    } else {
+      addToReviewDeck(wordId);
     }
   };
 
@@ -145,6 +168,28 @@ export default function FillBlanksQuestion({
 
       {!showResult && (
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={handleToggleReviewDeck}
+            className={`flex items-center justify-center gap-2 font-semibold py-3 px-6 rounded-xl transition-all border-2 ${
+              inReviewDeck
+                ? "bg-purple-600 text-white border-purple-600"
+                : "bg-white text-purple-600 border-purple-300 hover:bg-purple-50"
+            }`}
+          >
+            {inReviewDeck ? (
+              <>
+                <BookmarkCheck size={18} />
+                In Review Deck
+              </>
+            ) : (
+              <>
+                <BookmarkPlus size={18} />
+                Add to Review
+              </>
+            )}
+          </motion.button>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

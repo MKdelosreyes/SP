@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Volume2, Sparkles } from "lucide-react";
+import { Volume2, Sparkles, BookmarkCheck, BookmarkPlus } from "lucide-react";
 import { useState } from "react";
+import { useReviewDeck } from "@/contexts/ReviewDeckProvider";
 
 interface FlashcardProps {
   word: string;
@@ -10,10 +11,12 @@ interface FlashcardProps {
   example: string;
   isFlipped: boolean;
   onFlip: () => void;
+  wordId: number;
 }
 
 interface ParsedEnhancedContent {
   easyDefinition: string;
+  formalDefinition: string;
   bilingualGloss: string;
   examples: string[];
 }
@@ -24,11 +27,15 @@ export default function Flashcard({
   example,
   isFlipped,
   onFlip,
+  wordId,
 }: FlashcardProps) {
   const [isAnimating, setIsAnimating] = useState(false);
   const [enhancedContent, setEnhancedContent] =
     useState<ParsedEnhancedContent | null>(null);
   const [isLoadingEnhanced, setIsLoadingEnhanced] = useState(false);
+  const { addToReviewDeck, removeFromReviewDeck, isInReviewDeck } =
+    useReviewDeck();
+  const inReviewDeck = isInReviewDeck(wordId);
 
   const handleFlip = () => {
     if (!isAnimating) {
@@ -48,7 +55,6 @@ export default function Flashcard({
   };
 
   const cleanText = (text: string): string => {
-    // Remove markdown formatting
     return text.replace(/\*\*/g, "").trim();
   };
 
@@ -56,13 +62,13 @@ export default function Flashcard({
     const lines = content.split("\n").filter((line) => line.trim());
 
     let easyDefinition = "";
+    let formalDefinition = "";
     let bilingualGloss = "";
     let examples: string[] = [];
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i].trim();
 
-      // Extract easy definition
       if (line.includes("Easy definition")) {
         const colonIndex = line.lastIndexOf(":");
         if (colonIndex !== -1) {
@@ -70,7 +76,13 @@ export default function Flashcard({
         }
       }
 
-      // Extract bilingual gloss
+      if (line.includes("Brief formal definition")) {
+        const colonIndex = line.lastIndexOf(":");
+        if (colonIndex !== -1) {
+          formalDefinition = cleanText(line.substring(colonIndex + 1));
+        }
+      }
+
       if (line.includes("Bilingual gloss")) {
         const colonIndex = line.lastIndexOf(":");
         if (colonIndex !== -1) {
@@ -78,7 +90,6 @@ export default function Flashcard({
         }
       }
 
-      // Extract example sentences
       if (line.includes("Example sentences")) {
         for (let j = i + 1; j < lines.length; j++) {
           const exampleLine = lines[j].trim();
@@ -94,11 +105,11 @@ export default function Flashcard({
       }
     }
 
-    return { easyDefinition, bilingualGloss, examples };
+    return { easyDefinition, formalDefinition, bilingualGloss, examples };
   };
 
   const handleImproveDefinition = async (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent card flip
+    e.stopPropagation();
     setIsLoadingEnhanced(true);
 
     try {
@@ -114,9 +125,7 @@ export default function Flashcard({
 
       const data = await response.json();
       if (data.content) {
-        console.log("Raw API response:", data.content); // Debug log
         const parsed = parseEnhancedContent(data.content);
-        console.log("Parsed content:", parsed); // Debug log
         setEnhancedContent(parsed);
       }
     } catch (error) {
@@ -126,10 +135,19 @@ export default function Flashcard({
     }
   };
 
+  const handleToggleReviewDeck = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (inReviewDeck) {
+      removeFromReviewDeck(wordId);
+    } else {
+      addToReviewDeck(wordId);
+    }
+  };
+
   return (
-    <div className="perspective-1000 w-full max-w-2xl mx-auto">
+    <div className="perspective-1000 w-full h-full max-w-3xl mx-auto flex items-center justify-center">
       <motion.div
-        className="relative w-full aspect-[4/3] cursor-pointer"
+        className="relative w-full h-[450px] md:h-full md:max-h-[600px] cursor-pointer"
         onClick={handleFlip}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
         transition={{ duration: 0.6, type: "spring" }}
@@ -143,12 +161,28 @@ export default function Flashcard({
             transform: "rotateY(0deg)",
           }}
         >
-          <div className="w-full h-full bg-purple-100 rounded-3xl shadow-xl p-8 flex flex-col items-center justify-center border-4 border-purple-300">
-            <div className="text-center space-y-6">
+          <div className="w-full h-full bg-purple-100 rounded-3xl shadow-xl p-6 md:p-8 flex flex-col items-center justify-center border-4 border-purple-300 overflow-y-auto">
+            {/* Add to Review Deck Button - Front */}
+            <button
+              onClick={handleToggleReviewDeck}
+              className={`absolute top-4 right-4 p-2 rounded-lg transition-all ${
+                inReviewDeck
+                  ? "bg-purple-600 text-white"
+                  : "bg-white text-purple-600 border-2 border-purple-300"
+              } hover:scale-110`}
+            >
+              {inReviewDeck ? (
+                <BookmarkCheck className="w-5 h-5" />
+              ) : (
+                <BookmarkPlus className="w-5 h-5" />
+              )}
+            </button>
+
+            <div className="text-center space-y-4 md:space-y-6">
               <p className="text-purple-600 text-sm md:text-base font-semibold">
                 Salita / Word
               </p>
-              <h2 className="text-4xl md:text-4xl font-bold text-purple-900">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-purple-900">
                 {word}
               </h2>
             </div>
@@ -166,64 +200,78 @@ export default function Flashcard({
             transform: "rotateY(180deg)",
           }}
         >
-          <div className="w-full h-full bg-blue-100 rounded-3xl shadow-xl p-2 md:p-8 flex flex-col items-center justify-between border-4 border-blue-300 overflow-y-auto">
-            <div className="text-center space-y-4 max-w-xl flex-1 flex flex-col items-center justify-center w-full">
+          <div className="w-full h-full bg-blue-100 rounded-3xl shadow-xl p-4 md:p-8 flex flex-col items-center justify-between border-4 border-blue-300 overflow-y-auto">
+            {/* Add to Review Deck Button - Back */}
+            <button
+              onClick={handleToggleReviewDeck}
+              className={`absolute top-4 left-4 p-2 rounded-lg transition-all transform scale-x-[-1] ${
+                inReviewDeck
+                  ? "bg-blue-600 text-white"
+                  : "bg-white text-blue-600 border-2 border-blue-300"
+              } hover:scale-110`}
+            >
+              {inReviewDeck ? (
+                <BookmarkCheck className="w-5 h-5" />
+              ) : (
+                <BookmarkPlus className="w-5 h-5" />
+              )}
+            </button>
+
+            <div className="text-center space-y-3 md:space-y-4 max-w-xl flex-1 flex flex-col items-center justify-center w-full">
               {enhancedContent ? (
-                <>
+                <div className="w-full flex flex-col items-center">
                   <div className="flex items-center gap-2 mb-2">
                     <Sparkles className="w-5 h-5 text-blue-600" />
-                    <span className="text-base text-blue-600 font-semibold">
+                    <span className="text-sm md:text-base text-blue-600 font-semibold">
                       Enhanced Definition
                     </span>
                   </div>
-                  <div className="bg-blue-50 rounded-xl p-4 border-2 border-blue-200 text-center space-y-4">
-                    {/* Easy Definition */}
+                  <div className="bg-blue-50 rounded-xl p-3 md:p-4 border-2 border-blue-200 text-center space-y-3 md:space-y-4">
                     {enhancedContent.easyDefinition && (
                       <div>
-                        <h4 className="text-sm font-bold text-blue-700 mb-1">
+                        <h4 className="text-xs md:text-sm font-bold text-blue-700 mb-1">
                           Simple Definition:
                         </h4>
-                        <p className="text-blue-900 text-lg italic md:text-base">
+                        <p className="text-blue-900 text-base md:text-base italic">
                           {enhancedContent.easyDefinition}
                         </p>
                       </div>
                     )}
 
-                    {/* Bilingual Gloss */}
-                    {enhancedContent.bilingualGloss && (
+                    {enhancedContent.formalDefinition && (
                       <div>
-                        <p className="text-blue-900 text-xl md:text-base border-b border-blue-300 pb-7">
-                          {enhancedContent.bilingualGloss}
+                        <p className="text-blue-900 text-sm font-semibold md:text-base border-b border-blue-300 pb-3">
+                          {enhancedContent.formalDefinition}
                         </p>
                       </div>
                     )}
 
                     {enhancedContent.examples[0] && (
-                      <div className="pt-3">
-                        <h4 className="text-sm font-bold text-blue-700 mb-2">
+                      <div className="pt-2">
+                        <h4 className="text-xs md:text-sm font-bold text-blue-700 mb-2">
                           Example:
                         </h4>
-                        <ul className="space-y-2 text-base">
+                        <p className="text-sm md:text-base text-blue-900">
                           {enhancedContent.examples[0]}
-                        </ul>
+                        </p>
                       </div>
                     )}
                   </div>
-                </>
+                </div>
               ) : (
                 <>
                   <p className="text-blue-600 text-sm md:text-base font-semibold">
                     Kahulugan / Meaning
                   </p>
-                  <h3 className="text-2xl md:text-4xl font-bold text-blue-900">
+                  <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-blue-900">
                     {meaning}
                   </h3>
 
-                  <div className="mt-6 pt-4 border-t border-blue-300">
+                  <div className="mt-4 md:mt-6 pt-3 md:pt-4 border-t border-blue-300">
                     <p className="text-blue-600 text-xs md:text-sm font-semibold mb-2">
                       Halimbawa / Example:
                     </p>
-                    <p className="text-blue-800 text-sm md:text-lg italic">
+                    <p className="text-blue-800 text-sm md:text-base lg:text-lg italic">
                       "{example}"
                     </p>
                   </div>
@@ -231,12 +279,12 @@ export default function Flashcard({
               )}
             </div>
 
-            <div className="flex flex-col items-center gap-2 w-full mt-4">
+            <div className="flex flex-col items-center gap-2 w-full mt-3 md:mt-4">
               {!enhancedContent && (
                 <button
                   onClick={handleImproveDefinition}
                   disabled={isLoadingEnhanced}
-                  className="flex items-center gap-2 px-4 py-2 bg-blue-200 hover:bg-blue-300 text-blue-700 rounded-lg text-xs md:text-sm font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex items-center gap-2 px-3 md:px-4 py-2 bg-blue-200 hover:bg-blue-300 text-blue-700 rounded-lg text-xs md:text-sm font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Sparkles className="w-4 h-4" />
                   {isLoadingEnhanced ? "Improving..." : "Improve definition"}

@@ -11,8 +11,8 @@ export default function Header() {
       <div className="bg-white w-full m-2 p-3 flex items-center justify-between rounded-2xl font-(--font-mono) border border-gray-300">
         <a href="#" className="w-28 md:w-32">
           <Image
-            src={"/aralila-logo-text.svg"}
-            alt="Aralila Logo"
+            src={"/aralila-logo-text.png"}
+            alt="Logo"
             width={100}
             height={20}
             priority
