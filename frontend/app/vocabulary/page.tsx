@@ -15,7 +15,7 @@ export default function VocabularyPage() {
   const masteryColors = {
     beginner: "bg-gray-100 text-gray-700 border-gray-300",
     developing: "bg-blue-100 text-blue-700 border-blue-300",
-    proficient: "bg-purple-100 text-purple-700 border-purple-300",
+    proficient: "bg-blue-100 text-blue-700 border-blue-300",
     advanced: "bg-orange-100 text-orange-700 border-orange-300",
     master: "bg-yellow-100 text-yellow-700 border-yellow-400",
   };
@@ -28,7 +28,7 @@ export default function VocabularyPage() {
           {/* Back Button - Left */}
           <Link
             href="/dashboard"
-            className="inline-flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold text-sm transition-colors"
+            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Dashboard
@@ -62,7 +62,7 @@ export default function VocabularyPage() {
 
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-purple-900 mb-2 text-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-blue-900 mb-2 text-center">
             Vocabulary Activities
           </h1>
           <p className="text-center text-gray-600 mb-6">
@@ -74,10 +74,10 @@ export default function VocabularyPage() {
 
           {/* Review Deck Link */}
           {/* {reviewDeck.length > 0 && (
-            <div className="flex justify-center mt-6">
+                <div className="flex justify-center mt-6">
               <Link
                 href="/vocabulary/review-deck"
-                className="flex items-center gap-3 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-all hover:scale-105"
+                className="flex items-center gap-3 bg-gradient-to-r from-blue-500 to-pink-500 hover:from-blue-600 hover:to-pink-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-all hover:scale-105"
               >
                 <BookOpen className="w-5 h-5" />
                 <div className="text-left">

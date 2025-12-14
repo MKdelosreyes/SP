@@ -142,7 +142,7 @@ export default function Dashboard() {
         <div
           className={`${
             isPanelOpen ? "hidden lg:flex" : "flex"
-          } flex-col flex-[2] h-full bg-white rounded-2xl overflow-hidden border-7 border-purple-300 `}
+          } flex-col flex-[2] h-full bg-white rounded-2xl overflow-hidden border-7 border-blue-300 `}
         >
           {/* <MainBG imagePath="/bg/forestbg-learn.jpg" /> */}
           <div className="w-auto z-30 bg-white md:mx-3 md:mt-3 px-3 pt-3">
@@ -154,7 +154,7 @@ export default function Dashboard() {
         {/* Toggle Button for Mobile */}
         <button
           onClick={() => setIsPanelOpen(!isPanelOpen)}
-          className="lg:hidden fixed bottom-6 right-6 z-50 bg-purple-600 text-white p-3 rounded-full shadow-lg hover:bg-purple-700 transition-all"
+          className="lg:hidden fixed bottom-6 right-6 z-50 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-all"
           aria-label="Toggle panel"
         >
           {isPanelOpen ? <ChevronRight size={24} /> : <ChevronLeft size={24} />}

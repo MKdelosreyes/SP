@@ -199,19 +199,19 @@ export default function FillBlanksPage() {
   };
 
   return (
-    <div className="h-screen bg-purple-50 overflow-auto flex flex-col scrollbar-purple">
+    <div className="h-screen bg-blue-50 overflow-auto flex flex-col scrollbar-blue">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-purple-200">
+      <div className="flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-blue-200">
         <Link
           href="/vocabulary"
-          className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold text-sm"
+          className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
           Back
         </Link>
 
         <div className="text-center flex-1 px-4">
-          <h1 className="text-xl md:text-2xl font-bold text-purple-900">
+          <h1 className="text-xl md:text-2xl font-bold text-blue-900">
             Fill-in-the-Blanks
           </h1>
         </div>
@@ -275,7 +275,7 @@ export default function FillBlanksPage() {
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 className="w-full lg:flex-[0_0_55%]"
               >
-                <div className="bg-white rounded-2xl shadow-lg border-2 border-purple-200 p-6 h-full space-y-4">
+                <div className="bg-white rounded-2xl shadow-lg border-2 border-blue-200 p-6 h-full space-y-4">
                   {/* Answer Comparison */}
                   <div className="bg-red-50 border-2 border-red-200 rounded-lg p-2 space-y-2">
                     <div className="border-red-200 pt-2 flex flex-row items-center justify-center gap-4">
@@ -287,11 +287,11 @@ export default function FillBlanksPage() {
                       </p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 pb-3 border-b border-purple-100">
-                    <div className="p-2 bg-purple-100 rounded-lg">
-                      <Lightbulb className="w-5 h-5 text-purple-600" />
+                  <div className="flex items-center gap-2 pb-3 border-b border-blue-100">
+                    <div className="p-2 bg-blue-100 rounded-lg">
+                      <Lightbulb className="w-5 h-5 text-blue-600" />
                     </div>
-                    <h3 className="text-lg font-bold text-purple-900">
+                    <h3 className="text-lg font-bold text-blue-900">
                       AI Explanation
                     </h3>
                   </div>
@@ -320,7 +320,7 @@ export default function FillBlanksPage() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleNext}
-              className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-colors"
+              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition-colors"
             >
               {isLastQuestion ? "Finish Exercise" : "Next Question"}
               <ChevronRight className="w-5 h-5" />

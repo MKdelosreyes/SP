@@ -52,24 +52,24 @@ export default function FlashcardsPage() {
   // Show loading state while initializing
   if (sessionWords.length === 0) {
     return (
-      <div className="h-screen max-h-screen overflow-hidden flex flex-col bg-purple-50">
-        <div className="flex-shrink-0 flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-purple-200">
+      <div className="h-screen max-h-screen overflow-hidden flex flex-col bg-blue-50">
+        <div className="flex-shrink-0 flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-blue-200">
           <Link
             href="/vocabulary"
-            className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold text-sm"
+            className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm"
           >
             <ArrowLeft className="w-4 h-4" />
             Back
           </Link>
           <div className="text-center flex-1 px-4">
-            <h1 className="text-xl md:text-2xl font-bold text-purple-900">
+            <h1 className="text-xl md:text-2xl font-bold text-blue-900">
               Flashcards Practice
             </h1>
           </div>
           <div className="w-20"></div>
         </div>
         <div className="flex-1 flex items-center justify-center">
-          <div className="text-purple-600">Loading...</div>
+          <div className="text-blue-600">Loading...</div>
         </div>
       </div>
     );
@@ -213,19 +213,19 @@ export default function FlashcardsPage() {
   };
 
   return (
-    <div className="h-screen max-h-screen overflow-hidden flex flex-col bg-purple-50">
+    <div className="h-screen max-h-screen overflow-hidden flex flex-col bg-blue-50">
       {/* Header */}
-      <div className="flex-shrink-0 flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-purple-200">
+      <div className="flex-shrink-0 flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-blue-200">
         <Link
           href="/vocabulary"
-          className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold text-sm"
+          className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
           Back
         </Link>
 
         <div className="text-center flex-1 px-4">
-          <h1 className="text-xl md:text-2xl font-bold text-purple-900">
+          <h1 className="text-xl md:text-2xl font-bold text-blue-900">
             Flashcards Practice
           </h1>
         </div>
@@ -240,7 +240,7 @@ export default function FlashcardsPage() {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col px-4 md:px-8 py-4 md:py-6 gap-3 md:gap-4 max-w-4xl mx-auto w-full min-h-0 overflow-y-auto scrollbar-purple md:overflow-hidden">
+      <div className="flex-1 flex flex-col px-4 md:px-8 py-4 md:py-6 gap-3 md:gap-4 max-w-4xl mx-auto w-full min-h-0 overflow-y-auto scrollbar-blue md:overflow-hidden">
         {/* Progress - Fixed Height */}
         <div className="flex-shrink-0">
           <FlashcardProgress

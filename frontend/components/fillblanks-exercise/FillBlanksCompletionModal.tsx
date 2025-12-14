@@ -154,13 +154,13 @@ export default function FillBlanksCompletionModal({
                   </div>
 
                   {/* Stats */}
-                  <div className="space-y-3 bg-purple-50 rounded-2xl p-6">
+                  <div className="space-y-3 bg-blue-50 rounded-2xl p-6">
                     <div className="flex items-center justify-between">
                       <span className="text-gray-700 font-medium flex items-center gap-2">
-                        <Award className="w-5 h-5 text-purple-600" />
+                        <Award className="w-5 h-5 text-blue-600" />
                         Final Score
                       </span>
-                      <span className="text-3xl font-bold text-purple-600">
+                      <span className="text-3xl font-bold text-blue-600">
                         {score}%
                       </span>
                     </div>
@@ -199,11 +199,11 @@ export default function FillBlanksCompletionModal({
                   </div>
 
                   {/* AI Tips Button */}
-                  {!showTips && (
+                    {!showTips && (
                     <button
                       onClick={handleGetTips}
                       disabled={loadingTips}
-                      className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 px-6 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-500 to-pink-500 hover:from-blue-600 hover:to-pink-600 text-white font-semibold py-3 px-6 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {loadingTips ? (
                         <>
@@ -223,7 +223,7 @@ export default function FillBlanksCompletionModal({
                   <div className="flex flex-col gap-3 mt-auto">
                     <Link
                       href="/vocabulary"
-                      className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors text-center"
+                      className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors text-center"
                     >
                       Back to Vocabulary
                     </Link>
@@ -255,12 +255,12 @@ export default function FillBlanksCompletionModal({
                   >
                     <div className="h-full flex flex-col">
                       {/* Header */}
-                      <div className="p-6 border-b border-purple-100 bg-gradient-to-r from-purple-50 to-pink-50">
+                      <div className="p-6 border-b border-blue-100 bg-gradient-to-r from-blue-50 to-pink-50">
                         <div className="flex items-center gap-3">
                           <div className="p-2 bg-white rounded-lg shadow-sm">
-                            <Sparkles className="w-6 h-6 text-purple-600" />
+                            <Sparkles className="w-6 h-6 text-blue-600" />
                           </div>
-                          <h3 className="text-xl font-bold text-purple-900">
+                          <h3 className="text-xl font-bold text-blue-900">
                             Personalized Study Tips
                           </h3>
                         </div>

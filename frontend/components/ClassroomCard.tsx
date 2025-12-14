@@ -72,13 +72,13 @@ const ClassroomCard = ({
         color={color}
         className={`p-0 overflow-hidden relative justify-end max-w-4xl w-full min-h-[12rem] transition-all duration-300 ${
           isRecommended && !completed
-            ? "ring-4 ring-purple-500 ring-offset-4 ring-offset-white shadow-2xl shadow-purple-500/70 scale-105"
+            ? "ring-4 ring-blue-500 ring-offset-4 ring-offset-white shadow-2xl shadow-blue-500/70 scale-105"
             : ""
         }`}
       >
         {/* Recommended Badge (Top-Left) */}
         {isRecommended && !completed && (
-          <div className="absolute top-3 left-3 z-30 flex items-center gap-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-2xl animate-pulse border-2 border-white">
+          <div className="absolute top-3 left-3 z-30 flex items-center gap-1 bg-gradient-to-r from-blue-700 to-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold shadow-2xl animate-pulse border-2 border-white">
             <Sparkles size={16} className="animate-spin" />
             <span>RECOMMENDED NEXT</span>
           </div>
@@ -95,14 +95,14 @@ const ClassroomCard = ({
             <>
               {/* Mastery Level Badge */}
               <div
-                className={`flex items-center gap-1. 5 px-3 py-1 rounded-full text-xs font-bold border-2 shadow-lg ${mastery.color}`}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border-2 shadow-lg ${mastery.color}`}
               >
                 <span>{mastery.icon}</span>
                 <span className="capitalize">{mastery.level}</span>
               </div>
 
               {/* Difficulty Badge */}
-              <div className="bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-semibold text-purple-700 border border-purple-200 shadow-md">
+              <div className="bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-semibold text-blue-700 border border-blue-200 shadow-md">
                 {mastery.difficulty}
               </div>
             </>
@@ -120,15 +120,15 @@ const ClassroomCard = ({
         />
         <div
           className={`absolute inset-0 bg-gradient-to-t ${
-            isRecommended && !completed
-              ? "from-purple-900/60 via-purple-800/40 to-transparent"
+              isRecommended && !completed
+                ? "from-blue-900/60 via-blue-800/40 to-transparent"
               : "from-black/30 via-black/10 to-transparent"
           }`}
         />
 
         {/* Recommendation/Mastery Text (Bottom) */}
         <div className="relative z-10">
-          <p className="text-sm text-purple-200 mt-2 group-hover:text-purple-100 transition-colors font-medium">
+          <p className="text-sm text-blue-200 mt-2 group-hover:text-blue-100 transition-colors font-medium">
             {getRecommendationText()}
           </p>
         </div>

@@ -50,7 +50,7 @@ export default function QuizQuestion({
     <div className="w-full max-w-7xl mx-auto space-y-6">
       {/* Question Header */}
       <div className="text-center space-y-2">
-        <h2 className="text-2xl md:text-3xl font-bold text-purple-900">
+          <h2 className="text-2xl md:text-3xl font-bold text-blue-900">
           Ano ang kahulugan ng &quot;{word}&quot;?
         </h2>
       </div>
@@ -87,9 +87,9 @@ export default function QuizQuestion({
                       : showWrong
                       ? "bg-red-100 border-red-500"
                       : isSelected
-                      ? "bg-purple-100 border-purple-500"
-                      : "bg-white border-purple-200 hover:border-purple-400"
-                  } ${showResult ? "cursor-not-allowed" : "cursor-pointer"}`}
+                        ? "bg-blue-500 text-white"
+                        : "bg-blue-100 text-blue-700"
+                  }`}
                 >
                   <div className="flex items-center justify-between gap-3">
                     {/* Option Letter */}

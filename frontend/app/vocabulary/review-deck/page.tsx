@@ -33,16 +33,16 @@ export default function ReviewDeckPage() {
 
   if (reviewWords.length === 0) {
     return (
-      <div className="h-screen bg-purple-50 flex flex-col">
-        <div className="flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-purple-200">
+      <div className="h-screen bg-blue-50 flex flex-col">
+        <div className="flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-blue-200">
           <Link
             href="/vocabulary"
-            className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold text-sm"
+            className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm"
           >
             <ArrowLeft className="w-4 h-4" />
             Back
           </Link>
-          <h1 className="text-xl md:text-2xl font-bold text-purple-900">
+          <h1 className="text-xl md:text-2xl font-bold text-blue-900">
             Review Deck
           </h1>
           <div className="w-20"></div>
@@ -59,7 +59,7 @@ export default function ReviewDeckPage() {
             </p>
             <Link
               href="/vocabulary"
-              className="inline-block mt-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors"
+              className="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors"
             >
               Go to Exercises
             </Link>
@@ -131,24 +131,23 @@ export default function ReviewDeckPage() {
   };
 
   return (
-    <div className="h-screen bg-purple-50 overflow-auto flex flex-col scrollbar-purple">
+    <div className="h-screen bg-blue-50 overflow-auto flex flex-col scrollbar-blue">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-purple-200">
+      <div className="flex items-center justify-between px-4 md:px-8 py-4 bg-white border-b border-blue-200">
         <Link
           href="/vocabulary"
-          className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold text-sm"
+          className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-sm"
         >
           <ArrowLeft className="w-4 h-4" />
           Back
         </Link>
+        <h1 className="text-xl md:text-2xl font-bold text-blue-900">
+          Review Deck ({reviewWords.length} cards)
+        </h1>
+        <div className="w-20" />
+      </div>
 
-        <div className="text-center flex-1 px-4">
-          <h1 className="text-xl md:text-2xl font-bold text-purple-900">
-            Review Deck ({reviewWords.length} cards)
-          </h1>
-        </div>
-
-        <div className="flex gap-2">
+      <div className="flex gap-2">
           <button
             onClick={handleClearAll}
             className="flex items-center gap-2 text-red-600 hover:text-red-700 font-semibold text-sm"
