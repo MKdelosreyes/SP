@@ -1,0 +1,836 @@
+[
+    {
+        "source": "FilipinoPod101.com",
+        "url": "https://www.filipinopod101.com/blog/2021/03/18/filipino-grammar-overview/",
+        "topic": "Fundamental Tagalog Grammar Rules for Learners",
+        "grammar_sections": [
+            {
+            "section_name": "General Rules",
+            "rules": [
+                {
+                "name": "Roots and Affixes",
+                "description": "Roots combined with affixes form various words; affixes change meaning and grammatical role.",
+                "examples": [
+                    {"Filipino": "kain", "Past": "kinain", "Imperative": "kainin"},
+                    {"Filipino": "araw + gabi", "Combined": "araw-gabi"},
+                    {"Filipino": "isa", "Repeated": "isa-isa"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Sentence Structure",
+                "description": "Tagalog word order differs from English; subject marking via particle markers (e.g., ang).",
+                "examples": [
+                    {"English": "The car is beautiful.", "Filipino": "Maganda ang kotse."},
+                    {"English": "The car is beautiful.", "Alternative Formal": "Ang kotse ay maganda."}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Pronunciation and Sounds",
+                "description": "Certain vowel sounds can be interchanged in spoken Filipino.",
+                "examples": [
+                    {"Original": "lalaki", "Spoken Variant": "lalake"},
+                    {"Original": "hindi", "Spoken Variant": "hinde"}
+                ],
+                "common_errors": "Not explicitly stated, but note that changes occur only in spoken forms.",
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Syllable Repetition",
+                "description": "Syllable repetition is a pattern in verb conjugation (future tense).",
+                "examples": [
+                    {"Filipino": "amin", "Future": "aamin"},
+                    {"Filipino": "balik", "Future": "babalik"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Markers (ang, ng, sa)",
+                "description": "Markers indicate grammatical roles such as subject focus, possession, and direction.",
+                "examples": [
+                    {"Marker": "ang", "Sentence": "Matalino ang babae."},
+                    {"Marker": "ng", "Sentence": "bahay ng presidente"},
+                    {"Marker": "sa", "Sentence": "Pumunta siya sa Maynila."}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Beginner"
+                }
+            ]
+            },
+            {
+            "section_name": "Nouns",
+            "rules": [
+                {
+                "name": "Gender Neutrality",
+                "description": "Filipino nouns and pronouns are generally gender-neutral.",
+                "examples": [
+                    "Siya yung sinasabi ko. (He/She was the one I was talking about.)"
+                ],
+                "common_errors": null,
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Plurals",
+                "description": "Plural nouns use the marker \"mga\" before the noun.",
+                "examples": [
+                    {"Singular": "ibon", "Plural": "mga ibon"},
+                    {"Singular": "kotse", "Plural": "mga kotse"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Beginner"
+                }
+            ]
+            },
+            {
+            "section_name": "Pronouns",
+            "rules": [
+                {
+                "name": "Ang Pronouns",
+                "description": "Pronouns that serve as subject focus in sentences.",
+                "examples": [
+                    {"English": "I", "Filipino": "ako"},
+                    {"English": "they", "Filipino": "sila"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Ng Pronouns",
+                "description": "Pronouns for possessive or unfocused actors.",
+                "examples": [
+                    {"English": "my", "Filipino": "ko"},
+                    {"English": "our (exclusive)", "Filipino": "namin"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Sa Pronouns",
+                "description": "Pronouns indicating location, direction, or possession.",
+                "examples": [
+                    {"English": "me/my", "Filipino": "akin"},
+                    {"English": "you/your", "Filipino": "iyo"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Kita",
+                "description": "Special pronoun for combinations like I–you.",
+                "examples": [
+                    "Mahal kita (“I love you”).",
+                    "Nakita kita sa TV."
+                ],
+                "common_errors": null,
+                "difficulty_level": "Beginner"
+                }
+            ]
+            },
+            {
+            "section_name": "Verbs and Tenses",
+            "rules": [
+                {
+                "name": "Verb Groups",
+                "description": "Verbs are grouped by affixes (mag-, ma-, um-, in-, i-).",
+                "examples": [
+                    {"Group": "mag-", "Root": "aral", "Past": "nag-aral"},
+                    {"Group": "um-", "Root": "kain", "Future": "kakain"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Intermediate"
+                },
+                {
+                "name": "Verb Repetition for Prolonged Action",
+                "description": "Repeated verbs with \"nang\" express ongoing actions.",
+                "examples": [
+                    "Kain nang kain si Raul. (Raul keeps on eating.)",
+                    "Sumigaw nang sumigaw si Tanya."
+                ],
+                "common_errors": null,
+                "difficulty_level": "Intermediate"
+                }
+            ]
+            },
+            {
+            "section_name": "Adjectives",
+            "rules": [
+                {
+                "name": "Adjective-Noun Identicals",
+                "description": "Some adjectives have the same spelling as nouns but differ in pronunciation.",
+                "examples": [
+                    {"Noun": "buhay", "Adjective": "buhay"},
+                    {"Noun": "gutom", "Adjective": "gutom"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Adjective Gender",
+                "description": "Certain adjectives change form based on gender (commonly end in -a for female).",
+                "examples": [
+                    {"Male": "ambisyoso", "Female": "ambisyosa"},
+                    {"Male": "suplado", "Female": "suplada"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Degrees of Adjectives",
+                "description": "Adjectives intensify through repetition or addition of prefixes.",
+                "examples": [
+                    "batang-bata (very young)",
+                    "pinakamaganda (the most beautiful)"
+                ],
+                "common_errors": null,
+                "difficulty_level": "Beginner"
+                }
+            ]
+            }
+        ]
+    },
+    {
+        "source": "Preply.com",
+        "url": "https://preply.com/en/blog/tagalog-sentence-structure/",
+        "topic": "Tagalog Sentence Structure",
+        "grammar_sections": [
+            {
+            "section_name": "Definition and Basic Rules",
+            "rules": [
+                {
+                "name": "Typical Word Order (V-S-O)",
+                "description": "Tagalog generally uses a Verb-Subject-Object order rather than English’s S-V-O, which emphasizes the action first.",
+                "examples": [
+                    {"Tagalog": "Nag-aaral si Maria ng Tagalog", "English": "Maria is studying Tagalog"},
+                    {"Formal Order": "Si Maria ay nag-aaral ng Tagalog", "English": "Maria is studying Tagalog (formal)"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Beginner"
+                }
+            ]
+            },
+            {
+            "section_name": "Key Sentence Structure Types",
+            "rules": [
+                {
+                "name": "Declarative Sentences",
+                "description": "Use verb-first to state facts.",
+                "examples": [
+                    {"Incorrect": "Si Juan kumain", "Correct": "Kumain si Juan", "English": "Juan ate"}
+                ],
+                "common_errors": "Using S-V-O order like English learners tend to do", 
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Interrogative Sentences",
+                "description": "Questions place the predicate/verb or phrase before the subject and subject particle.",
+                "examples": [
+                    {"Phrase": "Pagod ka ba?", "English": "Are you tired?"}
+                ],
+                "common_errors": "Incorrect placement of ‘ba’ before the predicate", 
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Imperative Sentences",
+                "description": "Commands typically start with the verb followed by the subject.",
+                "examples": [
+                    {"Imperative": "Pumasok ka", "English": "Come in"}
+                ],
+                "common_errors": "Placing subject first like English (‘Ikaw pumasok’)", 
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Exclamatory Sentences",
+                "description": "Express emotion by leading with the adjective or predicate followed by the particle.",
+                "examples": [
+                    {"Exclamation": "Ang init!", "English": "It’s so hot!"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Beginner"
+                }
+            ]
+            },
+            {
+            "section_name": "Complex Structures and Connectors",
+            "rules": [
+                {
+                "name": "Connectors for Compound Ideas",
+                "description": "Tagalog uses connectors such as *at* (and) and *dahil/kasi* (because) to link ideas.",
+                "examples": [
+                    {"Sentence": "Kumain ako at natulog", "English": "I ate and slept"},
+                    {"Sentence": "Pagod ako dahil nagtrabaho ako", "English": "I’m tired because I worked all day"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Intermediate"
+                }
+            ]
+            },
+            {
+            "section_name": "Common Mistakes",
+            "rules": [
+                {
+                "name": "Applying English Word Order",
+                "description": "English learners often incorrectly use English structures, which can make sentences sound unnatural.",
+                "examples": [
+                    {"Incorrect": "Ako gusto mansanas", "Correct": "Gusto ko ng mansanas", "English": "I want an apple"},
+                    {"Incorrect": "Gusto ko prutas pero gulay", "Correct": "Gusto ko ng prutas at gulay", "English": "I like fruits and vegetables"}
+                ],
+                "common_errors": "Using English word order or misusing connectors", 
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Overuse of “ay”",
+                "description": "Learners often overuse the particle *ay*. It’s typically for emphasis or formal contexts, not everyday speech.",
+                "examples": [
+                    {"Incorrect": "Nagpunta ay si Juan", "Correct": "Si Juan ay nagpunta", "Alternative": "Nagpunta si Juan"}
+                ],
+                "common_errors": "Overusing ‘ay’ in casual sentences",
+                "difficulty_level": "Beginner"
+                }
+            ]
+            },
+            {
+            "section_name": "Real-Life Example Corrections",
+            "rules": [
+                {
+                "name": "Quiz Corrections",
+                "description": "Example learner sentences with corrections to reinforce correct structure.",
+                "examples": [
+                    {"Original": "Ako kape gusto", "Correct": "Gusto ko ng kape", "English": "I want coffee"},
+                    {"Original": "Ikaw pagod ba?", "Correct": "Pagod ka ba?", "English": "Are you tired?"},
+                    {"Original": "Siya ay ay isang guro", "Correct Formal": "Siya ay isang guro", "Correct Informal": "Guro siya"},
+                    {"Original": "Ikaw tulong pwede ako?", "Correct": "Pwede mo ba akong tulungan?", "English": "Can you help me?"}
+                ],
+                "common_errors": "Direct translation from English structures", 
+                "difficulty_level": "Beginner"
+                }
+            ]
+            }
+        ]
+    },
+    {
+        "source": "Tuttle Publishing (Tagalog for Beginners Appendix 4)",
+        "url": "https://www.tuttlepublishing.com/content/docs/9780804841269/Appendix/Appendix%204.pdf",
+        "topic": "Filipino Grammar for the Beginning Learner",
+        "grammar_sections": [
+            {
+            "section_name": "Verbs: Affixes and Conjugation",
+            "rules": [
+                {
+                "name": "Active vs Non-Active Verb Affixes",
+                "description": "Filipino verbs are conjugated using affixes for active and non-active voices.",
+                "examples": [
+                    {"verb_root": "kain", "active_affix": "kumain (past)", "meaning": "ate"},
+                    {"verb_root": "kain", "direct_object_focus": "kinain", "meaning": "was eaten"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Intermediate"
+                },
+                {
+                "name": "Plurality in Verbs",
+                "description": "Verbs do not change with number in everyday Filipino.",
+                "examples": [
+                    {"singular": "Umawit ang bata", "plural": "Nagsi-awit ang mga bata", "meaning": "The children sang the anthem"}
+                ],
+                "common_errors": "Assuming plural must always change verb form",
+                "difficulty_level": "Intermediate"
+                }
+            ]
+            },
+            {
+            "section_name": "Voice (Active vs Passive)",
+            "rules": [
+                {
+                "name": "Passive Voice Usage",
+                "description": "Passive constructions are often more natural in Filipino than direct active voice.",
+                "examples": [
+                    {"Filipino": "Umiinom ako ng kape araw-araw", "English": "I drink coffee every day"},
+                    {"Formal Active": "Ako ay umiinom ng kape araw-araw", "note": "More formal but uncommon in speech"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Intermediate"
+                }
+            ]
+            },
+            {
+            "section_name": "Tenses and Aspects",
+            "rules": [
+                {
+                "name": "Basic Tense/Aspect Categories",
+                "description": "Filipino tenses are often described as aspects: completed (past), incompleted (present), contemplative (future).",
+                "examples": [
+                    {"Filipino": "Nanood ako ng sine kahapon", "English": "I watched a movie yesterday"},
+                    {"Filipino": "Nanonood ako ng sine linggo-linggo", "English": "I watch movies every week"},
+                    {"Filipino": "Manonood ako ng sine bukas", "English": "I will watch a movie tomorrow"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Intermediate"
+                },
+                {
+                "name": "Imperative and Infinitive",
+                "description": "Imperative and infinitive forms use the same conjugation patterns but are conditioned by markers/hints in context.",
+                "examples": [
+                    {"Filipino": "Lumangoy ka!", "English": "Swim!"},
+                    {"Filipino": "Lumangoy", "note": "Infinitive used with markers"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Intermediate"
+                },
+                {
+                "name": "Recent Perfective Aspect",
+                "description": "Indicates actions completed just before speaking; applies mainly to actor-focus verbs.",
+                "examples": [
+                    {"Filipino": "Kalalangoy", "English": "Just swam"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Advanced"
+                }
+            ]
+            },
+            {
+            "section_name": "Pronouns",
+            "rules": [
+                {
+                "name": "Personal Pronoun Cases",
+                "description": "Pronouns vary by case (nominative, possessive, objective). Some include special forms (e.g., kita).",
+                "examples": [
+                    {"English": "I (subject)", "Filipino": "ako"},
+                    {"English": "my/mine", "Filipino": "ko/akin"},
+                    {"English": "you/your", "Filipino": "ikaw/ka/mo/iyo"},
+                    {"Filipino special": "kita", "English": "I love you"}
+                ],
+                "common_errors": "Confusing pronoun forms by case",
+                "difficulty_level": "Intermediate"
+                }
+            ]
+            },
+            {
+            "section_name": "Nouns and Case Markers",
+            "rules": [
+                {
+                "name": "Case Markers (Ang/Ng/Sa)",
+                "description": "Markers indicate grammatical roles such as subject focus, possession, and direction.",
+                "examples": [
+                    {"marker": "ang", "example": "Ang guro ay nagbabasa", "meaning": "The teacher is reading"},
+                    {"marker": "ng", "example": "Aklat ng bata", "meaning": "The child’s book"},
+                    {"marker": "sa", "example": "Pumunta sa Maynila", "meaning": "Went to Manila"}
+                ],
+                "common_errors": "Misplacing markers due to English assumptions",
+                "difficulty_level": "Intermediate"
+                }
+            ]
+            },
+            {
+            "section_name": "Other Important Points",
+            "rules": [
+                {
+                "name": "Verb Focus and Affix Choice",
+                "description": "Choosing the proper affix depends on which component (actor, object, etc.) you want to focus on.",
+                "examples": [
+                    {"Filipino": "Kumain ako ng kanin", "English": "I ate rice (actor focus)"},
+                    {"Filipino": "Kanin ang kinain ko", "English": "It was rice that I ate (object focus)"}
+                ],
+                "common_errors": "Using affixes without considering focus",
+                "difficulty_level": "Advanced"
+                }
+            ]
+            }
+        ]
+    },
+    {
+        "source": "iLanguages.org",
+        "url": "https://ilanguages.org/filipino_grammar.php",
+        "topic": "Filipino Grammar Rules — Quick Online Learning",
+        "grammar_sections": [
+            {
+            "section_name": "Basic Sentence Structure",
+            "rules": [
+                {
+                "name": "Verb–Subject–Object Order",
+                "description": "In Filipino, the verb typically comes before the subject and object, unlike English’s subject–verb–object order.",
+                "examples": [
+                    {"Filipino": "Kumain si Maria ng mangga.", "English": "Maria ate a mango."}
+                ],
+                "common_errors": "Forgetting the verb-first order and applying English SVO directly.",
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Use of ‘ay’ for Formality",
+                "description": "The copula ‘ay’ is used to form more formal or emphatic sentences.",
+                "examples": [
+                    {"Filipino": "Si Juan ay maganda ang boses.", "English": "Juan has a beautiful voice."}
+                ],
+                "common_errors": "Overusing ‘ay’ in everyday informal speech.",
+                "difficulty_level": "Beginner"
+                }
+            ]
+            },
+            {
+            "section_name": "Pronouns",
+            "rules": [
+                {
+                "name": "Personal Pronouns",
+                "description": "Filipino personal pronouns change depending on case (subject, object, possessive).",
+                "examples": [
+                    {"Case": "Subject", "Filipino": "ako", "English": "I"},
+                    {"Case": "Object", "Filipino": "ako", "English": "me"},
+                    {"Case": "Possessive", "Filipino": "akin", "English": "mine"}
+                ],
+                "common_errors": "Confusing pronoun forms in object vs possessive use.",
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Plural Pronouns",
+                "description": "Pronouns also indicate inclusive vs exclusive first-person plural.",
+                "examples": [
+                    {"Filipino": "tayo", "English": "we (including listener)"},
+                    {"Filipino": "kami", "English": "we (excluding listener)"}
+                ],
+                "common_errors": "Mixing up inclusive and exclusive ‘we’ forms.",
+                "difficulty_level": "Intermediate"
+                }
+            ]
+            },
+            {
+            "section_name": "Nouns and Articles",
+            "rules": [
+                {
+                "name": "Markers ‘ang’, ‘ng’, and ‘sa’",
+                "description": "Filipino uses markers to show grammatical roles. ‘Ang’ marks the focus of the sentence, ‘ng’ shows possession or non-focused actors/objects, and ‘sa’ indicates direction or indirect objects.",
+                "examples": [
+                    {"Filipino": "Ang bata ay naglalaro.", "English": "The child is playing."},
+                    {"Filipino": "Aklat ng guro.", "English": "The teacher’s book."},
+                    {"Filipino": "Pumunta sa eskwela.", "English": "Went to school."}
+                ],
+                "common_errors": "Misplacing case markers by directly translating English noun roles.",
+                "difficulty_level": "Intermediate"
+                },
+                {
+                "name": "Plural with ‘mga’",
+                "description": "To make a noun plural, ‘mga’ is placed before the noun.",
+                "examples": [
+                    {"Filipino": "mga kotse", "English": "cars"},
+                    {"Filipino": "mga bata", "English": "children"}
+                ],
+                "common_errors": "Forgetting to use ‘mga’ for plural nouns.",
+                "difficulty_level": "Beginner"
+                }
+            ]
+            },
+            {
+            "section_name": "Verbs and Affixes",
+            "rules": [
+                {
+                "name": "Use of Verb Affixes",
+                "description": "Filipino verbs are formed with affixes that indicate tense/aspect and focus.",
+                "examples": [
+                    {"Root": "kain", "Filipino": "kumain", "English": "ate"},
+                    {"Root": "aral", "Filipino": "nag-aaral", "English": "studying"}
+                ],
+                "common_errors": "Using verb roots without appropriate affixes.",
+                "difficulty_level": "Intermediate"
+                },
+                {
+                "name": "Aspect over Tense",
+                "description": "Verb forms in Filipino indicate aspect (complete, ongoing, future) rather than strict grammatical tense.",
+                "examples": [
+                    {"Filipino": "kumakain", "English": "eating (ongoing)"},
+                    {"Filipino": "kakain", "English": "will eat (future)"}
+                ],
+                "common_errors": "Applying English tense rules directly.",
+                "difficulty_level": "Intermediate"
+                }
+            ]
+            },
+            {
+            "section_name": "Adjectives and Adverbs",
+            "rules": [
+                {
+                "name": "Adjective Placement",
+                "description": "Adjectives generally come before the noun they modify in Filipino.",
+                "examples": [
+                    {"Filipino": "magandang araw", "English": "beautiful day"},
+                    {"Filipino": "maliit na bahay", "English": "small house"}
+                ],
+                "common_errors": "Switching to English word order.",
+                "difficulty_level": "Beginner"
+                },
+                {
+                "name": "Adverb Formation",
+                "description": "Many Filipino adverbs are formed by affixing or repeating words to express manner or degree.",
+                "examples": [
+                    {"Filipino": "dahan-dahan", "English": "slowly"},
+                    {"Filipino": "agad", "English": "immediately"}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Intermediate"
+                }
+            ]
+            },
+            {
+            "section_name": "Questions and Negation",
+            "rules": [
+                {
+                "name": "Forming Yes/No Questions",
+                "description": "Yes/no questions often use particles like ‘ba’ to indicate inquiry.",
+                "examples": [
+                    {"Filipino": "Kumain ka na ba?", "English": "Have you eaten?"}
+                ],
+                "common_errors": "Omitting the question particle in direct translations.",
+                "difficulty_level": "Intermediate"
+                },
+                {
+                "name": "Negation with ‘hindi’ and ‘wala’",
+                "description": "‘Hindi’ is used to negate verbs and equational sentences; ‘wala’ indicates absence.",
+                "examples": [
+                    {"Filipino": "Hindi ako gutom.", "English": "I am not hungry."},
+                    {"Filipino": "Wala akong pera.", "English": "I have no money."}
+                ],
+                "common_errors": null,
+                "difficulty_level": "Beginner"
+                }
+            ]
+            }
+        ]
+    },
+    {
+        "source": "FilipinoPod101.com",
+        "url": "https://www.filipinopod101.com/blog/2020/12/11/common-filipino-mistakes/",
+        "topic": "Common Filipino Language Mistakes and How to Avoid Them",
+        "grammar_mistakes": [
+            {
+            "name": "Incorrect Syllabication (Pronunciation)",
+            "description": "Mispronouncing Filipino words by incorrectly syllabicating them because of influence from one’s native language.",
+            "examples": [
+                {"incorrect": "/taw/", "correct": "/ta.o/", "word": "tao (man)"},
+                {"incorrect": "/ma.no.ka/", "correct": "/ma.nok/", "word": "manok (chicken)"}
+            ],
+            "common_errors": "Carrying over accent and stress from native language into Filipino syllabication.",
+            "difficulty_level": "Beginner"
+            },
+            {
+            "name": "Confusion between ng and nang",
+            "description": "Using “ng” and “nang” interchangeably when they have distinct grammatical roles.",
+            "examples": [
+                {"usage": "ng", "sentence": "Jed ang may-ari ng kotse.", "meaning": "Jed is the owner of the car."},
+                {"usage": "nang", "sentence": "Naliligo ako nang biglang may kumatok sa pinto.", "meaning": "I was bathing when someone suddenly knocked on the door."},
+                {"usage": "nang repeated action", "sentence": "Kain ka nang kain hindi ka naman tumataba.", "meaning": "All you do is eat, yet you don’t gain weight."}
+            ],
+            "common_errors": "Using “nang” when “ng” should be used or vice versa.",
+            "difficulty_level": "Intermediate"
+            },
+            {
+            "name": "Kumusta vs. Kamusta (Vocabulary)",
+            "description": "Misunderstanding the appropriateness of 'kumusta' vs. 'kamusta.'",
+            "examples": [
+                {"correct": "kumusta", "usage": "formal writing or song lyrics"},
+                {"alternate": "kamusta", "usage": "informal greeting"}
+            ],
+            "common_errors": "Using “kamusta” in formal contexts where “kumusta” is considered more correct.",
+            "difficulty_level": "Beginner"
+            },
+            {
+            "name": "Barok Speak and Word Order Errors",
+            "description": "Omitting linking words or inappropriate word placement, leading to awkward or incomplete Filipino sentences.",
+            "examples": [
+                {"incorrect": "Ako John", "correct": "Ako si John", "meaning": "I am John."},
+                {"incorrect": "Ang bata kumakanta", "correct": "Ang bata ay kumakanta", "meaning": "The child is singing."}
+            ],
+            "common_errors": "Leaving out “si/ang/ay” and other necessary linkers in sentences.",
+            "difficulty_level": "Intermediate"
+            },
+            {
+            "name": "Incorrect Use of the Particle ‘ba’",
+            "description": "Placing the question particle *ba* in the wrong spot in interrogative sentences.",
+            "examples": [
+                {"incorrect": "Kumain ka ba na?", "correct": "Kumain ka na ba?", "meaning": "Have you eaten already?"},
+                {"incorrect": "Kumain siya ba?", "correct": "Kumain ba siya?", "meaning": "Did he eat?"},
+                {"correct_variants": ["Ano ba ang kinain mo?", "Ano ang kinain mo ba?"], "meaning": "What did you eat?"}
+            ],
+            "common_errors": "Placing *ba* in positions that make the sentence sound awkward.",
+            "difficulty_level": "Intermediate"
+            },
+            {
+            "name": "Mix-up of ikaw, ka, and mo",
+            "description": "Confusing the pronouns *ikaw*, *ka*, and *mo* and their appropriate placements.",
+            "examples": [
+                {"incorrect": "Mabait ikaw.", "correct": "Mabait ka.", "meaning": "You are kind."},
+                {"incorrect": "Kumain na ikaw habang maaga pa.", "correct": "Kumain ka na habang maaga pa.", "meaning": "Go eat while it’s still early."},
+                {"correct_formal_with_ay": "Ikaw ay mabait.", "meaning": "You are kind (formal)."}
+            ],
+            "common_errors": "Interchanging pronouns or placing them incorrectly in sentences.",
+            "difficulty_level": "Intermediate"
+            },
+            {
+            "name": "Verb Conjugation with Affixes",
+            "description": "Incorrectly choosing verb affixes (e.g., using *mag-* when the verb requires *-um*).",
+            "examples": [
+                {"incorrect": "Magpunta", "correct": "Pumunta", "meaning": "Go"},
+                {"incorrect": "Magkain", "correct": "Kumain", "meaning": "Eat"},
+                {"incorrect": "Magligo", "correct": "Maliligo", "meaning": "Will bathe"}
+            ],
+            "common_errors": "Using the wrong affix when forming verb tenses and aspects.",
+            "difficulty_level": "Intermediate"
+            },
+            {
+            "name": "Confusing Daw vs. Raw",
+            "description": "Using *daw* and *raw* without regard to the sound that precedes them.",
+            "examples": [
+                {"correct": "Kumain daw kayo kina Andrew kagabi?", "meaning": "They said you ate at Andrew’s last night."},
+                {"correct": "Nasa Manila na raw sila.", "meaning": "They said they’re already in Manila."}
+            ],
+            "common_errors": "Using *daw/raw* without matching them to the phonetic rule (preceding consonant/vowel).",
+            "difficulty_level": "Intermediate"
+            },
+            {
+            "name": "Bukod vs. Maliban (Vocabulary Usage)",
+            "description": "*Bukod* and *maliban* have different meanings (“in addition to” vs “except”) and are often interchanged incorrectly.",
+            "examples": [
+                {"incorrect": "Maliban sa Master’s Degree, mayroon din siyang Doctor’s Degree.", "correct": "Bukod sa Master’s Degree, mayroon din siyang Doctor’s Degree."},
+                {"incorrect": "Lahat ng anak ni Alfonso ay nagtapos na ng kolehiyo bukod kay Mateo.", "correct": "Lahat ng anak ni Alfonso ay nagtapos na ng kolehiyo maliban kay Mateo."}
+            ],
+            "common_errors": "Using the wrong word to express addition vs exception.",
+            "difficulty_level": "Intermediate"
+            },
+            {
+            "name": "Kung vs. Kapag (Conditional vs Temporal)",
+            "description": "Confusing *kung* (“if”) and *kapag* (“when”) and their proper use depending on the sentence context.",
+            "examples": [
+                {"correct": "Paano kung hindi ko maabutan ang tren bukas?", "meaning": "What if I miss the train tomorrow?"},
+                {"correct": "Uuwi lang ako kapag tinawag na ako ni nanay.", "meaning": "I’ll go home when mom calls me."}
+            ],
+            "common_errors": "Interchanging *kung* and *kapag* regardless of cause/effect or time context.",
+            "difficulty_level": "Intermediate"
+            },
+            {
+            "name": "Not Practicing Enough",
+            "description": "Failing to practice Filipino regularly — the biggest mistake for language learners.",
+            "examples": null,
+            "common_errors": "Neglecting regular speaking, listening, writing practice.",
+            "difficulty_level": "Beginner"
+            }
+        ]
+    },
+    {
+        "source": "theAsianparent Philippines",
+        "url": "https://ph.theasianparent.com/filipino-grammar-mistakes",
+        "topic": "11 Common Filipino Grammar Mistakes We Use Incorrectly",
+        "grammar_mistakes": [
+            {
+            "name": "Kumusta vs. Kamusta",
+            "description": "Using “Kamusta” instead of the more formal/correct “Kumusta”, especially in writing or formal contexts.",
+            "examples": [
+                {"incorrect": "Kamusta ka na?", "correct": "Kumusta ka na?"}
+            ],
+            "common_errors": "Using 'Kamusta' in formal writing where 'Kumusta' is preferred.",
+            "difficulty_level": "Beginner"
+            },
+            {
+            "name": "Sila vs. Sina",
+            "description": "Confusing the pronoun 'sila' (they/them) with 'sina' (used to introduce proper names).",
+            "examples": [
+                {"usage": "Parating na sila!", "English": "They are coming!"},
+                {"usage": "Parating na sina Pedro at Juan.", "English": "Pedro and Juan are coming."}
+            ],
+            "common_errors": "Using 'sina' and 'sila' interchangeably without regard to context.",
+            "difficulty_level": "Intermediate"
+            },
+            {
+            "name": "Daw vs. Raw",
+            "description": "Using 'daw' and 'raw' without the phonetic rule; choice depends on the sound before the word.",
+            "examples": [
+                {"sentence": "Dumaan daw kayo sa bahay kahapon?", "rule": "Use daw after consonant ending."},
+                {"sentence": "Si Mika raw ang nagluto ng hapunan.", "rule": "Use raw after vowel ending."}
+            ],
+            "common_errors": "Applying daw/raw incorrectly regardless of preceding sound.",
+            "difficulty_level": "Intermediate"
+            },
+            {
+            "name": "Ng vs. Nang",
+            "description": "Confusing the preposition 'ng' with the conjunction 'nang'.",
+            "examples": [
+                {"usage": "Ang may-ari ng laptop na ito ay si Jed.", "English": "The owner of this laptop is Jed."},
+                {"usage": "Nagluluto ako nang biglang may kumatok sa aming pinto.", "English": "I was cooking when someone knocked on our door."}
+            ],
+            "common_errors": "Interchanging 'ng' and 'nang' without regard to grammatical role.",
+            "difficulty_level": "Intermediate"
+            },
+            {
+            "name": "Bukod vs. Maliban",
+            "description": "Using 'bukod' for addition and 'maliban' for exception but often mixing them up.",
+            "examples": [
+                {"correct": "Bukod sa pagsasayaw, marunong din siya kumanta.", "English": "Besides dancing, she can also sing."},
+                {"correct": "Lahat ng anak niya ay pintor maliban sa kanyang bunso.", "English": "All his children are painters except his youngest child."}
+            ],
+            "common_errors": "Using the wrong word to express addition vs exception.",
+            "difficulty_level": "Intermediate"
+            },
+            {
+            "name": "Kung vs. Kapag",
+            "description": "Confusing 'kung' (“if”) and 'kapag' (“when”) based on context.",
+            "examples": [
+                {"correct": "Matulog ka na kapag tapos na ang iyong gawain.", "English": "Go to bed when you’re done with your work."},
+                {"correct": "Ano ang gagawin mo kung hindi ka makapasa ng pagsusulit?", "English": "What will you do if you don’t pass the test?"}
+            ],
+            "common_errors": "Interchanging 'kung' and 'kapag' without context.",
+            "difficulty_level": "Intermediate"
+            },
+            {
+            "name": "Use of Ikaw and Ka",
+            "description": "Incorrectly swapping 'ikaw' and 'ka'; 'ka' is used more frequently in colloquial sentences.",
+            "examples": [
+                {"incorrect": "Maganda ikaw", "correct": "Maganda ka", "English": "You are beautiful."},
+                {"correct_formal": "Ikaw ay maganda.", "English": "You are beautiful."}
+            ],
+            "common_errors": "Replacing 'ka' with 'ikaw' without understanding usage rules.",
+            "difficulty_level": "Intermediate"
+            },
+            {
+            "name": "Use of Mo",
+            "description": "Misusing 'mo' as a pronoun; 'mo' can mean “your” or “you” depending on context.",
+            "examples": [
+                {"sentence": "Nasaan ang kaibigan mo?", "English": "Where is your friend?"}
+            ],
+            "common_errors": "Confusing 'mo' with other second-person forms like 'ka' or 'ikaw'.",
+            "difficulty_level": "Intermediate"
+            },
+            {
+            "name": "Pinto vs. Pintuan",
+            "description": "Using 'pintuan' instead of 'pinto' for a literal door; '-an' often indicates a place, not the object.",
+            "examples": [
+                {"correct": "pinto", "note": "door (object)"},
+                {"correct": "pintuan", "note": "door frame or entrance area"}
+            ],
+            "common_errors": "Incorrectly generalizing words with '-an' suffix without understanding semantics.",
+            "difficulty_level": "Intermediate"
+            },
+            {
+            "name": "Sa akin not Sakin",
+            "description": "Incorrectly combining 'sa' and 'akin' into one word like 'sakin'.",
+            "examples": [
+                {"correct": "sa akin", "note": "two separate words or stylized as 'sa’kin'."}
+            ],
+            "common_errors": "Fusing separate words incorrectly (e.g., palang, parin, nalang).",
+            "difficulty_level": "Beginner"
+            },
+            {
+            "name": "Filipino vs. Tagalog Label",
+            "description": "Mistaking the terms 'Filipino' and 'Tagalog' as the same. Filipino is the national language.",
+            "examples": null,
+            "common_errors": "Referring to the national language as Tagalog instead of Filipino.",
+            "difficulty_level": "Beginner"
+            },
+            {
+            "name": "Not Practicing Enough",
+            "description": "Failing to practice Filipino regularly can be one of the biggest mistakes learners make.",
+            "examples": null,
+            "common_errors": "Neglecting regular speaking and writing practice.",
+            "difficulty_level": "Beginner"
+            }
+        ]
+    }
+]
+
