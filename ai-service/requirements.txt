@@ -1,0 +1,21 @@
+# fastapi
+# uvicorn
+# python-dotenv
+# openai
+# numpy
+fastapi
+uvicorn
+python-dotenv
+openai
+pydantic==2.5.3
+python-multipart==0.0.6
+httpx>=0.24.0
+
+# For RAG implementation (Phase 3)
+langchain==0.1.0
+langchain-openai==0.0.2
+chromadb==0.4.22
+sentence-transformers==2.3.1
+
+# Utilities
+numpy==1.26.3

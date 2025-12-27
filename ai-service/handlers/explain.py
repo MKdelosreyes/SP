@@ -1,7 +1,7 @@
 # from fastapi import APIRouter, HTTPException
 # from openai_client import client
 # from prompts import explanation_prompt
-# from data.vocabulary_dataset import vocabulary_data
+# from data.vocabulary_core import vocabulary_data
 
 # router = APIRouter()
 
