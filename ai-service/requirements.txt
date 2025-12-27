@@ -1,21 +1,26 @@
-# fastapi
-# uvicorn
-# python-dotenv
-# openai
-# numpy
-fastapi
-uvicorn
-python-dotenv
-openai
+# Core dependencies with compatible versions
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-dotenv==1.0.0
+
+# OpenAI with compatible httpx version
+openai==1.10.0
+httpx==0.26.0  # Critical: Must be compatible with openai
+
+# Pydantic
 pydantic==2.5.3
+pydantic-core==2.14.6
+pydantic-settings==2.1.0
+
+# Other utilities
 python-multipart==0.0.6
-httpx>=0.24.0
+annotated-types==0.6.0
 
-# For RAG implementation (Phase 3)
-langchain==0.1.0
-langchain-openai==0.0.2
-chromadb==0.4.22
-sentence-transformers==2.3.1
-
-# Utilities
+# NumPy for calculations
 numpy==1.26.3
+
+# For RAG (optional - install later if needed)
+# langchain==0.1.0
+# langchain-openai==0.0.2
+# chromadb==0.4.22
+# sentence-transformers==2.3.1

@@ -3,30 +3,45 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, List
 import os
-from openai import OpenAI
+import sys
 from dotenv import load_dotenv
 
+# Load environment variables FIRST
+load_dotenv()
+
+# Verify OpenAI API key exists
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key or api_key == "your_openai_api_key_here":
+    print("❌ ERROR: OPENAI_API_KEY not set in .env file")
+    print("Please edit ai-service/.env and add your OpenAI API key")
+    sys.exit(1)
+
+# Import OpenAI after env check
+try:
+    from openai import OpenAI
+    openai_client = OpenAI(api_key=api_key)
+    print("✅ OpenAI client initialized successfully")
+except Exception as e:
+    print(f"❌ ERROR initializing OpenAI client: {e}")
+    print("\nTry running: pip install --upgrade openai httpx")
+    sys.exit(1)
+
 # Initialize FastAPI
-app = FastAPI(title="UPCAT Filipino Reviewer AI Service")
+app = FastAPI(
+    title="UPCAT Filipino Reviewer AI Service",
+    description="AI-powered Filipino language learning service for UPCAT preparation",
+    version="1.0.0"
+)
 
 # CORS Configuration
+allowed_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Frontend URL
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Initialize OpenAI Client
-# openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-load_dotenv()  # load variables from ai-service/.env into the process env
-
-# Initialize OpenAI Client
-api_key = os.getenv("OPENAI_API_KEY")
-if not api_key:
-    raise RuntimeError("OPENAI_API_KEY not set. Add it to ai-service/.env or export it in your shell.")
-openai_client = OpenAI(api_key=api_key)
 
 # ============================================================
 # REQUEST/RESPONSE MODELS
@@ -71,14 +86,23 @@ class ConfusableWord(BaseModel):
 class ConfusablesResponse(BaseModel):
     results: List[ConfusableWord]
 
+class HealthResponse(BaseModel):
+    status: str
+    message: str
+    openai_configured: bool
+
 # ============================================================
 # HELPER FUNCTIONS
 # ============================================================
 
 def get_vocabulary_entry(word: str):
     """Load vocabulary data and find entry"""
-    from data.vocabulary_core import vocabulary_data
-    return next((v for v in vocabulary_data if v["word"] == word), None)
+    try:
+        from data.vocabulary_core import vocabulary_data
+        return next((v for v in vocabulary_data if v["word"] == word), None)
+    except ImportError:
+        print("⚠️  Warning: vocabulary_core.py not found")
+        return None
 
 def explanation_prompt(data: dict) -> str:
     """Generate explanation prompt"""
@@ -156,9 +180,32 @@ Return:
 # ENDPOINTS
 # ============================================================
 
-@app.get("/")
+@app.get("/", response_model=HealthResponse)
 async def root():
-    return {"message": "UPCAT Filipino AI Service", "status": "running"}
+    """Health check endpoint"""
+    return HealthResponse(
+        status="running",
+        message="UPCAT Filipino AI Service",
+        openai_configured=bool(api_key)
+    )
+
+@app.get("/health")
+async def health_check():
+    """Detailed health check"""
+    checks = {
+        "service": "online",
+        "openai_key_configured": bool(api_key),
+        "vocabulary_data_loaded": False,
+    }
+    
+    try:
+        from data.vocabulary_core import vocabulary_data
+        checks["vocabulary_data_loaded"] = len(vocabulary_data) > 0
+        checks["vocabulary_count"] = len(vocabulary_data)
+    except ImportError:
+        pass
+    
+    return checks
 
 @app.post("/explain", response_model=ExplainResponse)
 async def explain(request: ExplainRequest):
@@ -193,6 +240,7 @@ async def explain(request: ExplainRequest):
         return ExplainResponse(explanation=explanation)
 
     except Exception as e:
+        print(f"Error in /explain: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/tips", response_model=TipsResponse)
@@ -214,6 +262,7 @@ async def generate_tips(request: TipsRequest):
         return TipsResponse(tips=tips)
 
     except Exception as e:
+        print(f"Error in /tips: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/redefine", response_model=RedefineResponse)
@@ -235,6 +284,7 @@ async def redefine_word(request: RedefineRequest):
         return RedefineResponse(content=content)
 
     except Exception as e:
+        print(f"Error in /redefine: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/confusables", response_model=ConfusablesResponse)
@@ -287,7 +337,31 @@ async def find_confusables(request: ConfusablesRequest):
         return ConfusablesResponse(results=results)
 
     except Exception as e:
+        print(f"Error in /confusables: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
+# ============================================================
+# STARTUP
+# ============================================================
+
+@app.on_event("startup")
+async def startup_event():
+    """Run on startup"""
+    print("\n" + "="*60)
+    print("🚀 UPCAT Filipino AI Service Starting...")
+    print("="*60)
+    print(f"✅ OpenAI API Key: {'Configured' if api_key else 'Missing'}")
+    
+    try:
+        from data.vocabulary_core import vocabulary_data
+        print(f"✅ Vocabulary Data: {len(vocabulary_data)} words loaded")
+    except ImportError:
+        print("⚠️  Vocabulary Data: Not found (vocabulary_core.py missing)")
+    
+    print("="*60)
+    print(f"🌐 Server running on http://localhost:8001")
+    print(f"📚 API Docs: http://localhost:8001/docs")
+    print("="*60 + "\n")
 
 # ============================================================
 # RUN SERVER
@@ -295,4 +369,13 @@ async def find_confusables(request: ConfusablesRequest):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8001)
+    
+    host = os.getenv("HOST", "0.0.0.0")
+    port = int(os.getenv("PORT", 8001))
+    
+    uvicorn.run(
+        app,
+        host=host,
+        port=port,
+        log_level="info"
+    )
